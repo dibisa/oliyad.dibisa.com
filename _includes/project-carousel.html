@@ -1,0 +1,69 @@
+<div id="carousel" style="border: 1px solid #e5e5e5; border-radius: 14px; padding: 1rem; margin: 1rem 0;">
+  <div style="display:flex; justify-content: space-between; align-items:center; gap:1rem;">
+    <div>
+      <h2 id="c-title" style="margin: 0;">Featured Demo</h2>
+      <div id="c-sub" style="opacity: 0.85; margin-top: 0.25rem;"></div>
+    </div>
+
+    <div style="display:flex; gap:0.5rem;">
+      <button id="c-prev" type="button">◀</button>
+      <button id="c-next" type="button">▶</button>
+    </div>
+  </div>
+
+  <div style="margin-top: 1rem;">
+    <div id="c-media"></div>
+    <div style="margin-top: 0.75rem;">
+      <a id="c-paper" target="_blank" rel="noopener">Open paper</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const projects = {{ site.data.projects | jsonify }};
+
+  if (!projects || projects.length === 0) {
+    document.getElementById("carousel").style.display = "none";
+  } else {
+    let i = 0;
+
+    function render() {
+      const p = projects[i];
+      document.getElementById("c-title").textContent = p.title;
+      document.getElementById("c-sub").textContent = p.blurb || "";
+
+      const media = document.getElementById("c-media");
+      media.innerHTML = "";
+
+      if (p.kind === "video") {
+        const v = document.createElement("video");
+        v.src = p.media;
+        v.controls = true;
+        v.style.width = "100%";
+        v.style.borderRadius = "12px";
+        media.appendChild(v);
+      } else {
+        const img = document.createElement("img");
+        img.src = p.media;
+        img.alt = p.title;
+        img.style.width = "100%";
+        img.style.borderRadius = "12px";
+        media.appendChild(img);
+      }
+
+      const paper = document.getElementById("c-paper");
+      paper.href = p.paper_url;
+    }
+
+    document.getElementById("c-prev").addEventListener("click", () => {
+      i = (i - 1 + projects.length) % projects.length;
+      render();
+    });
+    document.getElementById("c-next").addEventListener("click", () => {
+      i = (i + 1) % projects.length;
+      render();
+    });
+
+    render();
+  }
+</script>

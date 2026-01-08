@@ -1,6 +1,6 @@
 ---
-layout: post
-title:  "Welcome to Jekyll!"
+layout: Background
+title:  "Welcome to My website!"
 date:   2026-01-08 15:12:03 -0600
 categories: jekyll update
 ---

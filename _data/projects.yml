@@ -1,0 +1,34 @@
+- title: "Ammonia-free natural rubber latex photo-resin for sustainable 3D printing"
+  kind: "video"
+  media: "/assets/media/ammonia-free-demo.mp4"
+  thumb: "/assets/media/ammonia-free-thumb.jpg"
+  paper_url: "https://doi.org/YOUR_DOI"
+  extra_links:
+    - label: "PDF"
+      url: "https://YOUR-PDF-LINK"
+    - label: "Code"
+      url: "https://github.com/dibisa/YOUR-REPO"
+  blurb: "UV-curable NRL photopolymer resin enabling sustainable additive manufacturing."
+  tags: ["photopolymerization", "NRL", "3D printing"]
+
+- title: "High-sensitivity NMR characterization of natural rubber latex end-groups"
+  kind: "image"
+  media: "/assets/media/nmr-figure.jpg"
+  thumb: "/assets/media/nmr-figure.jpg"
+  paper_url: "https://doi.org/YOUR_DOI_2"
+  extra_links:
+    - label: "Google Scholar"
+      url: "https://scholar.google.com/citations?user=YOURID"
+  blurb: "DOSY / T1 / T2 analysis connecting preservative chemistry to terminal groups and topology."
+  tags: ["NMR", "structure–property", "latex"]
+
+- title: "Rheological model: viscosity vs. solids content (predictive + formulation tool)"
+  kind: "image"
+  media: "/assets/media/rheology-plot.jpg"
+  thumb: "/assets/media/rheology-plot.jpg"
+  paper_url: "https://doi.org/YOUR_DOI_3"
+  extra_links:
+    - label: "GitHub"
+      url: "https://github.com/dibisa/YOUR-REPO-2"
+  blurb: "Practical model for formulation + processing control in latex-based inks/adhesives."
+  tags: ["rheology", "modeling", "formulation"]

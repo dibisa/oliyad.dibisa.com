@@ -101,8 +101,8 @@
       if(stored !== null){
         setOpen(stored === '1', false);
       } else {
-        // default: mobile collapsed, desktop expanded
-        setOpen(!isMobile(), false);
+        // default: show expanded business card on first visit
+        setOpen(true, false);
       }
 
       // respond to toggle
@@ -115,7 +115,8 @@
       window.addEventListener('resize', function(){
         try{ stored = localStorage.getItem(key); }catch(e){ stored = null; }
         if(stored === null){
-          setOpen(!isMobile(), false);
+          // keep default expanded when resizing unless user set preference
+          setOpen(true, false);
         }
       });
     })();

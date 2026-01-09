@@ -27,8 +27,8 @@ url: "https://dibisa.github.io"
 theme: minima
 
 header_pages:
-  - about.md
-  - cv.md
+  - about.markdown
+  - CV.markdown
 
 minima:
   # minima-specific options can remain here. Global social links are defined

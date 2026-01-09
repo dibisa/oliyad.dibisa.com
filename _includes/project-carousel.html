@@ -25,35 +25,47 @@
   if (!projects || projects.length === 0) {
     document.getElementById("carousel").style.display = "none";
   } else {
-    let i = 0;
+      let i = 0;
 
-    function render() {
-      const p = projects[i];
-      document.getElementById("c-title").textContent = p.title;
-      document.getElementById("c-sub").textContent = p.blurb || "";
+      function render() {
+        const p = projects[i];
+        document.getElementById("c-title").textContent = p.title;
+        document.getElementById("c-sub").textContent = p.blurb || "";
 
-      const media = document.getElementById("c-media");
-      media.innerHTML = "";
+        const media = document.getElementById("c-media");
+        media.innerHTML = "";
 
-      if (p.kind === "video") {
-        const v = document.createElement("video");
-        v.src = p.media;
-        v.controls = true;
-        v.style.width = "100%";
-        v.style.borderRadius = "12px";
-        media.appendChild(v);
-      } else {
-        const img = document.createElement("img");
-        img.src = p.media;
-        img.alt = p.title;
-        img.style.width = "100%";
-        img.style.borderRadius = "12px";
-        media.appendChild(img);
+        // support media array
+        const items = p.media || [];
+        if (items.length === 0) {
+          const img = document.createElement("img");
+          img.src = "{{ site.media_placeholder | default: '/assets/media/placeholder.svg' }}";
+          img.alt = p.title;
+          img.style.width = "100%";
+          img.style.borderRadius = "12px";
+          media.appendChild(img);
+        } else {
+          const item = items[0];
+          if (item.type === "video") {
+            const v = document.createElement("video");
+            v.src = item.src;
+            v.controls = true;
+            v.style.width = "100%";
+            v.style.borderRadius = "12px";
+            media.appendChild(v);
+          } else {
+            const img = document.createElement("img");
+            img.src = item.src;
+            img.alt = item.caption || p.title;
+            img.style.width = "100%";
+            img.style.borderRadius = "12px";
+            media.appendChild(img);
+          }
+        }
+
+        const paper = document.getElementById("c-paper");
+        paper.href = p.paper_url;
       }
-
-      const paper = document.getElementById("c-paper");
-      paper.href = p.paper_url;
-    }
 
     document.getElementById("c-prev").addEventListener("click", () => {
       i = (i - 1 + projects.length) % projects.length;

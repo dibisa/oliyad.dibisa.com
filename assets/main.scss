@@ -1,0 +1,100 @@
+---
+---
+/* Import minima styles then override/extend */
+@import "minima";
+
+:root {
+  --footer-height: 120px;
+}
+
+/* Ensure main content doesn't get hidden behind sticky footer */
+.home {
+  padding-bottom: var(--footer-height);
+}
+
+/* Projects grid responsive behavior */
+.projects-grid {
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+}
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sticky footer business-card */
+.sticky-footer {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
+  z-index: 999;
+  padding: 1rem 1.25rem;
+}
+
+.footer-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-col { }
+
+.footer-left {
+  flex: 0 0 110px;
+}
+
+.footer-center {
+  flex: 1 1 220px;
+}
+
+.footer-right {
+  flex: 1 1 320px;
+}
+
+.footer-right-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.footer-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.social-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.social-list li { margin: 0.25rem 0; }
+
+.footer-desc p { margin: 0; max-width: 40ch; }
+
+/* Fallback for environments that don't support sticky */
+@supports not (position: sticky) {
+  .sticky-footer { position: fixed; left: 0; right: 0; }
+}
+
+@media (max-width: 560px) {
+  .footer-inner { align-items: flex-start; }
+  .footer-left { flex-basis: 100%; }
+  .footer-center { flex-basis: 100%; }
+  .footer-right { flex-basis: 100%; }
+  .footer-right-inner { flex-direction: column; }
+}

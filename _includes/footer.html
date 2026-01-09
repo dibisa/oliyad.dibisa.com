@@ -1,23 +1,33 @@
-<footer class="site-footer" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e5e5e5;">
-  <div class="wrapper" style="display:flex; gap:1rem; flex-wrap:wrap;">
-    <div class="footer-col footer-col-1" style="flex:1 1 200px;">
-      <p style="margin:0;"><strong>Oliyad Teferi Dibisa</strong></p>
-      <p style="margin:0;">dibisa@wisc.edu</p>
-      <p style="margin:0.5rem 0 0 0; max-width:40ch;">PhD candidate (Mechanical Engineering). Natural rubber latex, rheology, photopolymerization, emulsions, colloids, Relaxometer, DOSY, NMR and structure–process-property analysis.</p>
+<footer class="site-footer sticky-footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-left">
+      {% if site.profile_image %}
+        <img src="{{ site.profile_image | relative_url }}" alt="{{ site.title }}" class="footer-avatar">
+      {% endif %}
     </div>
 
-    {% if site.social_links %}
-      <div class="footer-col footer-col-3" style="flex:0 0 200px;">
-        <p><strong>Social</strong></p>
-        <ul style="list-style:none; padding-left:0; margin:0;">
-          {% for s in site.social_links %}
-            <li style="margin:0.25rem 0;">
-              <a href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{{ s.label }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
+    <div class="footer-col footer-center">
+      <p class="footer-name"><strong>{{ site.title }}</strong></p>
+      <p class="footer-email">{{ site.email }}</p>
+    </div>
 
+    <div class="footer-col footer-right">
+      <div class="footer-right-inner">
+        <div class="footer-social">
+          {% if site.social_links %}
+            <p><strong>Social</strong></p>
+            <ul class="social-list">
+              {% for s in site.social_links %}
+                <li><a href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{{ s.label }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+
+        <div class="footer-desc">
+          <p>{{ site.description }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>

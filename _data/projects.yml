@@ -2,12 +2,11 @@
   kind: "video"
   media: "/assets/media/ammonia-free-demo.mp4"
   thumb: "/assets/media/ammonia-free-thumb.jpg"
-  paper_url: "https://doi.org/YOUR_DOI"
+  paper_url: "https://doi.org/10.1002/pls2.70011"
   extra_links:
     - label: "PDF"
-      url: "https://YOUR-PDF-LINK"
-    - label: "Code"
-      url: "https://github.com/dibisa/YOUR-REPO"
+      url: "https://https://4spepublications.onlinelibrary.wiley.com/doi/full/10.1002/pls2.70011"
+    
   blurb: "UV-curable NRL photopolymer resin enabling sustainable additive manufacturing."
   tags: ["photopolymerization", "NRL", "3D printing"]
 
@@ -15,7 +14,7 @@
   kind: "image"
   media: "/assets/media/nmr-figure.jpg"
   thumb: "/assets/media/nmr-figure.jpg"
-  paper_url: "https://doi.org/YOUR_DOI_2"
+  paper_url: "https://doi.org/10.1002/pen.70041"
   extra_links:
     - label: "Google Scholar"
       url: "https://scholar.google.com/citations?user=YOURID"
@@ -26,9 +25,7 @@
   kind: "image"
   media: "/assets/media/rheology-plot.jpg"
   thumb: "/assets/media/rheology-plot.jpg"
-  paper_url: "https://doi.org/YOUR_DOI_3"
-  extra_links:
-    - label: "GitHub"
-      url: "https://github.com/dibisa/YOUR-REPO-2"
+  paper_url: "https://doi.org//10.1063/5.0255679"
+  
   blurb: "Practical model for formulation + processing control in latex-based inks/adhesives."
   tags: ["rheology", "modeling", "formulation"]

@@ -31,10 +31,16 @@ header_pages:
   - cv.md
 
 minima:
-  social_links:
-    - { platform: ResearchGate, user_url: "https://www.researchgate.net/profile/Oliyad-Dibisa" }
-    - { platform: linkedin, user_url: "https://www.linkedin.com/in/oliyad-dibisa-777684168" }
-    - { platform: ORCiD, user_url: "https://orcid.org/0009-0003-2507-2107" }
+  # minima-specific options can remain here. Global social links are defined
+  # at the top-level `social_links` key (used by the footer include below).
+
+social_links:
+  - label: ResearchGate
+    url: "https://www.researchgate.net/profile/Oliyad-Dibisa"
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/oliyad-dibisa-777684168"
+  - label: ORCID
+    url: "https://orcid.org/0009-0003-2507-2107"
 
 
 # Exclude from processing.

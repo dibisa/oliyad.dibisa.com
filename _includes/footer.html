@@ -1,33 +1,123 @@
-<footer class="site-footer sticky-footer">
-  <div class="footer-inner">
-    <div class="footer-col footer-left">
+<footer class="site-footer sticky-footer" id="siteCard" aria-hidden="false">
+  <div class="site-card-bar" id="siteCardBar">
+    <div class="bar-left">
       {% if site.profile_image %}
-        <img src="{{ site.profile_image | relative_url }}" alt="{{ site.title }}" class="footer-avatar">
+        <img src="{{ site.profile_image | relative_url }}" alt="{{ site.title }}" class="footer-avatar bar-avatar">
       {% endif %}
+      <div class="bar-identity">
+        <div class="bar-name">{{ site.title }}</div>
+        <div class="bar-email">{{ site.email }}</div>
+      </div>
     </div>
+    <button id="siteCardToggle" class="bar-toggle" aria-expanded="true" aria-controls="siteCardContent">
+      <span class="chev">▾</span>
+    </button>
+  </div>
 
-    <div class="footer-col footer-center">
-      <p class="footer-name"><strong>{{ site.title }}</strong></p>
-      <p class="footer-email">{{ site.email }}</p>
-    </div>
+  <div class="site-card-content" id="siteCardContent" role="region" aria-label="Contact card details">
+    <div class="footer-inner">
+      <div class="footer-col col-photo">
+        {% if site.profile_image %}
+          <img src="{{ site.profile_image | relative_url }}" alt="{{ site.title }}" class="footer-avatar">
+        {% endif %}
+      </div>
 
-    <div class="footer-col footer-right">
-      <div class="footer-right-inner">
-        <div class="footer-social">
-          {% if site.social_links %}
-            <p><strong>Social</strong></p>
-            <ul class="social-list">
-              {% for s in site.social_links %}
-                <li><a href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{{ s.label }}</a></li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </div>
+      <div class="footer-col col-identity">
+        <p class="footer-name"><strong>{{ site.title }}</strong></p>
+        <p class="footer-email">{{ site.email }}</p>
+        {% if site.signature_title %}
+          <p class="sig-title">{{ site.signature_title }}</p>
+        {% endif %}
+        {% if site.signature_affiliation %}
+          <p class="sig-aff">{{ site.signature_affiliation }}</p>
+        {% endif %}
+        {% if site.signature_location %}
+          <p class="sig-loc">{{ site.signature_location }}</p>
+        {% endif %}
+        {% if site.signature_website %}
+          <p class="sig-site"><a href="{{ site.signature_website }}" target="_blank" rel="noopener">{{ site.signature_website }}</a></p>
+        {% endif %}
+      </div>
 
-        <div class="footer-desc">
+      <div class="footer-col col-social">
+        {% if site.social_links %}
+          <p><strong>Social</strong></p>
+          <ul class="social-list">
+            {% for s in site.social_links %}
+              <li><a href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{{ s.label }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+
+      <div class="footer-col col-summary">
+        {% if site.phd_summary %}
+          <p>{{ site.phd_summary }}</p>
+        {% else %}
           <p>{{ site.description }}</p>
-        </div>
+        {% endif %}
       </div>
     </div>
   </div>
+
+  <script>
+    (function(){
+      const key = 'siteCardOpen';
+      const bar = document.getElementById('siteCardBar');
+      const toggle = document.getElementById('siteCardToggle');
+      const content = document.getElementById('siteCardContent');
+      const siteCard = document.getElementById('siteCard');
+
+      function isMobile() {
+        return window.matchMedia('(max-width: 640px)').matches;
+      }
+
+      function setOpen(open, persist=true){
+        if(open){
+          siteCard.classList.add('site-card-open');
+          content.style.display = '';
+          toggle.setAttribute('aria-expanded','true');
+          toggle.querySelector('.chev').textContent = '▾';
+        } else {
+          siteCard.classList.remove('site-card-open');
+          content.style.display = 'none';
+          toggle.setAttribute('aria-expanded','false');
+          toggle.querySelector('.chev').textContent = '▸';
+        }
+        // adjust bottom padding for main content
+        const root = document.querySelector('.home') || document.querySelector('body');
+        if(root){
+          const h = open ? getComputedStyle(siteCard).getPropertyValue('--footer-height-expanded') : getComputedStyle(siteCard).getPropertyValue('--footer-height-collapsed');
+          // parse px
+          const px = parseInt(h) || 120;
+          root.style.paddingBottom = px + 'px';
+        }
+        if(persist) try{ localStorage.setItem(key, open ? '1' : '0'); }catch(e){}
+      }
+
+      // initialize
+      let stored = null;
+      try{ stored = localStorage.getItem(key); }catch(e){}
+      if(stored !== null){
+        setOpen(stored === '1', false);
+      } else {
+        // default: mobile collapsed, desktop expanded
+        setOpen(!isMobile(), false);
+      }
+
+      // respond to toggle
+      toggle.addEventListener('click', function(){
+        const open = siteCard.classList.contains('site-card-open');
+        setOpen(!open, true);
+      });
+
+      // update on resize: if switching to mobile and no stored value, collapse
+      window.addEventListener('resize', function(){
+        try{ stored = localStorage.getItem(key); }catch(e){ stored = null; }
+        if(stored === null){
+          setOpen(!isMobile(), false);
+        }
+      });
+    })();
+  </script>
 </footer>

@@ -43,6 +43,11 @@ social_links:
     url: "https://orcid.org/0009-0003-2507-2107"
 
 profile_image: "/assets/img/profile.jpg"
+signature_title: "PhD Candidate"
+signature_affiliation: "Department of Mechanical Engineering, University of Wisconsin–Madison"
+signature_location: "Madison, WI"
+signature_website: "https://dibisa.github.io"
+phd_summary: "PhD candidate researching natural rubber latex, rheology, photopolymerization, emulsions, and structure–process–property analysis."
 
 
 # Exclude from processing.

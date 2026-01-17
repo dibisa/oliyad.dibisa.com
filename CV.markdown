@@ -6,7 +6,7 @@ permalink: /cv/
 
 **Download:** [O.Dibisa_resume.pdf](/assets/docs/O.Dibisa_resume.pdf)
 
-<p>If you upload your resume PDF to <code>assets/docs/O.Dibisa_resume.pdf</code>, it will appear below.</p>
+
 
 <iframe
   src="/assets/docs/O.Dibisa_resume.pdf"

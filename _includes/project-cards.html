@@ -1,17 +1,15 @@
 <div class="projects-grid">
-  {% for p in site.data.projects %}
-    <div class="project-card" data-project-id="{{ p.id }}">
-      <a class="project-link" href="{{ p.paper_url }}" target="_blank" rel="noopener">
-        <h3 class="project-title">{{ p.title }}</h3>
-      </a>
-
-      <p class="project-desc">{{ p.description }}</p>
-
-      <div class="project-tags">
-        {% for t in p.tags %}
-          <span class="tag">#{{ t }}</span>
-        {% endfor %}
-      </div>
+  {% for project in site.data.projects %}
+  <div class="project-card">
+    <a href="{{ project.paper_url }}" class="project-card-title" target="_blank" rel="noopener">
+      {{ project.title }}
+    </a>
+    <p class="project-card-description">{{ project.description }}</p>
+    <div class="project-tags">
+      {% for tag in project.tags %}
+      <span class="tag">#{{ tag }}</span>
+      {% endfor %}
     </div>
+  </div>
   {% endfor %}
 </div>

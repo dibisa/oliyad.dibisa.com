@@ -8,86 +8,15 @@ layout: default
       {{ site.description }}
     </p>
   </header>
-  {% include hero-media.html %}
 
-  <hr style="margin: 2rem 0;" />
+  {% include project-carousel.html %}
 
   <h2>Selected Projects & Papers</h2>
 
   {% include project-cards.html %}
-
-  {% include sticky-footer.html %}
-
-  <script>window.SITE_PROJECTS = {{ site.data.projects | jsonify }};</script>
-  <script src="/assets/js/site.js"></script>
 </div>
 
-<script>
-  // inner media carousel for project cards
-  document.addEventListener('DOMContentLoaded', function(){
-    const projects = {{ site.data.projects | jsonify }};
+{% include sticky-footer.html %}
 
-    function showMedia(idx, pos){
-      const p = projects[idx];
-      const items = p.media || [];
-      if(!items || items.length === 0) return;
-      const item = items[pos];
-      const container = document.getElementById('project-media-' + idx);
-      if(!container) return;
-      container.innerHTML = '';
-      if(item.type === 'video'){
-        const v = document.createElement('video');
-        v.src = item.src;
-        v.controls = true;
-        v.style.width = '100%';
-        v.style.borderRadius = '12px';
-        container.appendChild(v);
-      } else {
-        const img = document.createElement('img');
-        img.src = item.src;
-        img.alt = item.caption || '';
-        img.style.width = '100%';
-        img.style.borderRadius = '12px';
-        container.appendChild(img);
-      }
-      // if more than 1, append controls
-      if(items.length > 1){
-        const controls = document.createElement('div');
-        controls.className = 'project-media-controls';
-        controls.style.display = 'flex';
-        controls.style.gap = '0.5rem';
-        controls.style.marginTop = '0.5rem';
-        const prev = document.createElement('button'); prev.textContent='◀'; prev.className='p-prev'; prev.dataset.idx=idx; prev.dataset.pos = pos;
-        const next = document.createElement('button'); next.textContent='▶'; next.className='p-next'; next.dataset.idx=idx; next.dataset.pos = pos;
-        controls.appendChild(prev); controls.appendChild(next);
-        container.appendChild(controls);
-      }
-    }
-
-    // track positions
-    const positions = [];
-    for(let i=0;i<projects.length;i++) positions[i]=0;
-
-    document.body.addEventListener('click', function(e){
-      if(e.target.matches('.p-next')){
-        const idx = parseInt(e.target.dataset.idx);
-        const p = projects[idx]; if(!p) return;
-        const len = (p.media || []).length;
-        positions[idx] = (positions[idx] + 1) % len;
-        showMedia(idx, positions[idx]);
-      }
-      if(e.target.matches('.p-prev')){
-        const idx = parseInt(e.target.dataset.idx);
-        const p = projects[idx]; if(!p) return;
-        const len = (p.media || []).length;
-        positions[idx] = (positions[idx] - 1 + len) % len;
-        showMedia(idx, positions[idx]);
-      }
-    });
-
-    // initialize all with pos 0
-    for(let i=0;i<projects.length;i++){
-      showMedia(i, 0);
-    }
-  });
-</script>
+<script>window.SITE_PROJECTS = {{ site.data.projects | jsonify }};</script>
+<script src="/assets/js/site.js"></script>

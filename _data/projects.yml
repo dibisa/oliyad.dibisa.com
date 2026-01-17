@@ -1,88 +1,41 @@
-# Example projects data. Update with your real projects.
-- id: "proj-1"
-  title: "Paper One: Rheology of Natural Rubber"
-  description: "Short description of Paper One, 1–2 sentences about the work and key result."
-  tags:
-    - rheology
-    - emulsions
-  paper_url: "https://example.com/paper-one"
-  media:
-    - type: image
-      src: "/assets/media/sample1.jpg"
-      caption: "Microscopy image from Paper One"
-    - type: video
-      src: "/assets/media/sample1.mp4"
-      caption: "Short demo video for Paper One"
-
-- id: "proj-2"
-  title: "Paper Two: Photopolymerization"
-  description: "Short description of Paper Two, focusing on methods and impact."
-  tags:
-    - photopolymerization
-    - DOSY
-  paper_url: "https://example.com/paper-two"
-  media:
-    - type: image
-      src: "/assets/media/sample2.jpg"
-      caption: "Sample experimental setup"
-    - type: video
-      src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      caption: "YouTube demo (placeholder)"
-- title: "Ammonia-free natural rubber latex photo-resin for sustainable 3D printing"
-  id: "10.1002-pls2-70011"
-  media:
-    - type: "image"
-      src: "/assets/media/10.1002-pls2.70011Figurepls270011fig0002--image1.jpeg"
-      caption: "Figure 0002"
-    - type: "image"
-      src: "/assets/media/10.1002-pls2.70011Figurepls270011fig0007--image1.jpeg"
-      caption: "Figure 0007"
-    - type: "image"
-      src: "/assets/media/10.1002-pls2.70011Figurepls270011fig0008--image1.jpeg"
-      caption: "Figure 0008"
-  thumb: "/assets/media/10.1002-pls2.70011Figurepls270011fig0002--image1.jpeg"
-  paper_url: "https://doi.org/10.1002/pls2.70011"
-  extra_links:
-    - label: "PDF"
-      url: "https://https://4spepublications.onlinelibrary.wiley.com/doi/full/10.1002/pls2.70011"
-  blurb: "UV-curable NRL photopolymer resin enabling sustainable additive manufacturing."
-  tags: ["photopolymerization", "NRL", "3D printing"]
-
-- title: "High-sensitivity NMR characterization of natural rubber latex end-groups"
-  id: "10.1002-pen-70041"
+- id: "predicting-viscosity"
+  title: "Predicting the viscosity of latex based on the solid content, density and surface charges"
+  description: "Develops predictive models for natural rubber latex viscosity using key material parameters."
+  paper_url: "https://doi.org/10.1002/pen.70041"
+  tags: ["rheology", "modeling", "formulation"]
   media:
     - type: "image"
       src: "/assets/media/10.1002-pen.70041Figurepen70041fig0001--image1.jpeg"
-      caption: "Figure 0001"
+      alt: "Figure 1: Viscosity model schematic"
     - type: "image"
       src: "/assets/media/10.1002-pen.70041Figurepen70041fig0007--image1.jpeg"
-      caption: "Figure 0007"
+      alt: "Figure 7: Viscosity vs. solid content"
     - type: "image"
       src: "/assets/media/10.1002-pen.70041Figurepen70041fig0010--image1.jpeg"
-      caption: "Figure 0010"
-  thumb: "/assets/media/10.1002-pen.70041Figurepen70041fig0001--image1.jpeg"
-  paper_url: "https://doi.org/10.1002/pen.70041"
-  extra_links:
-    - label: "Google Scholar"
-      url: "https://scholar.google.com/citations?user=YOURID"
-  blurb: "DOSY / T1 / T2 analysis connecting preservative chemistry to terminal groups and topology."
-  tags: ["NMR", "structure–property", "latex"]
+      alt: "Figure 10: Model validation"
 
-- title: "Rheological model: viscosity vs. solids content (predictive + formulation tool)"
+- id: "printing-900-elongation"
+  title: "Printing natural rubber latex with 900% elongation"
+  description: "Demonstrates 3D printing of high-elongation natural rubber latex with photopolymerization."
+  paper_url: "https://doi.org/10.1002/pls2.70011"
+  tags: ["3D printing", "photopolymerization", "NRL", "elastomers"]
   media:
     - type: "image"
-      src: "/assets/media/rheology-plot.jpg"
-      caption: "Rheology plot"
-    - type: "video"
-      src: "/assets/media/Movies3.mp4"
-      caption: "Supplemental video"
+      src: "/assets/media/10.1002-pls2.70011Figurepls270011fig0002--image1.jpeg"
+      alt: "Figure 2: Printed sample with 900% elongation"
     - type: "image"
-      src: "/assets/img/IMG_6687.JPG"
-      caption: "Sample photo"
+      src: "/assets/media/10.1002-pls2.70011Figurepls270011fig0007--image1.jpeg"
+      alt: "Figure 7: Mechanical properties"
     - type: "image"
-      src: "/assets/media/rheology-plot.jpg"
-      caption: "Rheology plot"
-  thumb: "/assets/media/rheology-plot.jpg"
-  paper_url: "https://doi.org//10.1063/5.0255679"
-  blurb: "Practical model for formulation + processing control in latex-based inks/adhesives."
-  tags: ["rheology", "modeling", "formulation"]
+      src: "/assets/media/10.1002-pls2.70011Figurepls270011fig0008--image1.jpeg"
+      alt: "Figure 8: Surface morphology"
+
+- id: "measuring-diffusion"
+  title: "Measuring the Diffusion coefficient and nuclear spin relaxation of surface and core of natural rubber latex"
+  description: "Characterizes diffusion and NMR relaxation properties of natural rubber latex particles."
+  paper_url: "https://doi.org/10.1039/d1sm00564b"
+  tags: ["NMR", "structure-property", "latex", "characterization"]
+  media:
+    - type: "image"
+      src: "/assets/media/placeholder-diffusion.jpg"
+      alt: "NMR relaxation characterization"

@@ -1,82 +1,108 @@
-<div id="carousel" style="border: 1px solid #e5e5e5; border-radius: 14px; padding: 1rem; margin: 1rem 0;">
-  <div style="display:flex; justify-content: space-between; align-items:center; gap:1rem;">
-    <div>
-      <h2 id="c-title" style="margin: 0;">Featured Demo</h2>
-      <div id="c-sub" style="opacity: 0.85; margin-top: 0.25rem;"></div>
-    </div>
-
-    <div style="display:flex; gap:0.5rem;">
-      <button id="c-prev" type="button">◀</button>
-      <button id="c-next" type="button">▶</button>
-    </div>
+<div class="carousel-container" id="carousel-container">
+  <!-- Project title + description -->
+  <div class="carousel-header">
+    <h2 id="carousel-title">Featured</h2>
+    <p id="carousel-description"></p>
   </div>
 
-  <div style="margin-top: 1rem;">
-    <div id="c-media"></div>
-    <div style="margin-top: 0.75rem;">
-      <a id="c-paper" target="_blank" rel="noopener">Open paper</a>
+  <!-- Media viewer with project navigation (big watermark arrows) -->
+  <div class="media-viewer-wrapper">
+    <button class="carousel-nav carousel-nav-prev" id="project-prev" aria-label="Previous project">
+      <span class="watermark-arrow">‹</span>
+    </button>
+    
+    <div class="media-viewer" id="media-viewer">
+      <!-- Media item rendered here by JS -->
     </div>
+
+    <button class="carousel-nav carousel-nav-next" id="project-next" aria-label="Next project">
+      <span class="watermark-arrow">›</span>
+    </button>
+  </div>
+
+  <!-- Media navigation (within-project prev/next) -->
+  <div class="media-nav-controls">
+    <button id="media-prev" class="media-nav-btn" aria-label="Previous media">‹ Prev</button>
+    <span id="media-counter" class="media-counter">1 / 1</span>
+    <button id="media-next" class="media-nav-btn" aria-label="Next media">Next ›</button>
   </div>
 </div>
 
 <script>
-  const projects = {{ site.data.projects | jsonify }};
+  (function() {
+    const projects = window.SITE_PROJECTS || [];
+    if (!projects || projects.length === 0) return;
 
-  if (!projects || projects.length === 0) {
-    document.getElementById("carousel").style.display = "none";
-  } else {
-      let i = 0;
+    let currentProjectIdx = 0;
+    let currentMediaIdx = 0;
 
-      function render() {
-        const p = projects[i];
-        document.getElementById("c-title").textContent = p.title;
-        document.getElementById("c-sub").textContent = p.blurb || "";
+    function renderMedia() {
+      const project = projects[currentProjectIdx];
+      const media = project.media[currentMediaIdx];
+      
+      // Update header
+      document.getElementById('carousel-title').textContent = project.title;
+      document.getElementById('carousel-description').textContent = project.description;
 
-        const media = document.getElementById("c-media");
-        media.innerHTML = "";
-
-        // support media array
-        const items = p.media || [];
-        if (items.length === 0) {
-          const img = document.createElement("img");
-          img.src = "{{ site.media_placeholder | default: '/assets/media/placeholder.svg' }}";
-          img.alt = p.title;
-          img.style.width = "100%";
-          img.style.borderRadius = "12px";
-          media.appendChild(img);
-        } else {
-          const item = items[0];
-          if (item.type === "video") {
-            const v = document.createElement("video");
-            v.src = item.src;
-            v.controls = true;
-            v.style.width = "100%";
-            v.style.borderRadius = "12px";
-            media.appendChild(v);
-          } else {
-            const img = document.createElement("img");
-            img.src = item.src;
-            img.alt = item.caption || p.title;
-            img.style.width = "100%";
-            img.style.borderRadius = "12px";
-            media.appendChild(img);
-          }
-        }
-
-        const paper = document.getElementById("c-paper");
-        paper.href = p.paper_url;
+      // Render media item
+      const viewer = document.getElementById('media-viewer');
+      viewer.innerHTML = '';
+      if (media.type === 'image') {
+        const img = document.createElement('img');
+        img.src = media.src;
+        img.alt = media.alt || project.title;
+        img.style.maxWidth = '100%';
+        img.style.height = 'auto';
+        viewer.appendChild(img);
+      } else if (media.type === 'video') {
+        const video = document.createElement('video');
+        video.src = media.src;
+        video.controls = true;
+        video.style.maxWidth = '100%';
+        video.style.height = 'auto';
+        viewer.appendChild(video);
       }
 
-    document.getElementById("c-prev").addEventListener("click", () => {
-      i = (i - 1 + projects.length) % projects.length;
-      render();
-    });
-    document.getElementById("c-next").addEventListener("click", () => {
-      i = (i + 1) % projects.length;
-      render();
+      // Update counter
+      document.getElementById('media-counter').textContent = 
+        `${currentMediaIdx + 1} / ${project.media.length}`;
+
+      // Update button states
+      document.getElementById('media-prev').disabled = currentMediaIdx === 0;
+      document.getElementById('media-next').disabled = currentMediaIdx === project.media.length - 1;
+    }
+
+    // Project navigation
+    document.getElementById('project-prev').addEventListener('click', function() {
+      currentProjectIdx = (currentProjectIdx - 1 + projects.length) % projects.length;
+      currentMediaIdx = 0;
+      renderMedia();
     });
 
-    render();
-  }
+    document.getElementById('project-next').addEventListener('click', function() {
+      currentProjectIdx = (currentProjectIdx + 1) % projects.length;
+      currentMediaIdx = 0;
+      renderMedia();
+    });
+
+    // Media navigation
+    document.getElementById('media-prev').addEventListener('click', function() {
+      if (currentMediaIdx > 0) {
+        currentMediaIdx--;
+        renderMedia();
+      }
+    });
+
+    document.getElementById('media-next').addEventListener('click', function() {
+      const project = projects[currentProjectIdx];
+      if (currentMediaIdx < project.media.length - 1) {
+        currentMediaIdx++;
+        renderMedia();
+      }
+    });
+
+    // Initial render
+    renderMedia();
+  })();
 </script>
 

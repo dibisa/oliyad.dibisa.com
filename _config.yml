@@ -21,8 +21,8 @@
 title: Oliyad Teferi Dibisa
 email: dibisa@wisc.edu
 description: PhD candidate (Mechanical Engineering). Natural rubber latex, rheology, photopolymerization, emulsions, colloids, Relaxometer, DOSY,  NMR and structure–process-property analysis.
-baseurl: ""
-url: "https://oliyaddibisa.com"
+baseurl: "/oliyad.dibisa.com"
+url: "https://dibisa.github.io"
 
 theme: minima
 

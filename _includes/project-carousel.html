@@ -30,8 +30,12 @@
 
 <script>
   (function() {
-    const projects = window.SITE_PROJECTS || [];
-    if (!projects || projects.length === 0) return;
+    const projects = {{ site.data.projects | jsonify }};
+    
+    if (!projects || projects.length === 0) {
+      document.getElementById('carousel-container').innerHTML = '<p>No projects found.</p>';
+      return;
+    }
 
     let currentProjectIdx = 0;
     let currentMediaIdx = 0;

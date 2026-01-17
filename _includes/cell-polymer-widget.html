@@ -1,0 +1,134 @@
+<div class="cell-polymer-widget" id="cell-polymer-widget">
+  <div class="cell-widget-header">
+    <h3>🔬 Cell ↔ Polymer Terminology</h3>
+    <p class="cell-widget-hint">Click organelles to explore polymer analogies</p>
+  </div>
+
+  <div class="cell-widget-content">
+    <!-- SVG Animal Cell Diagram -->
+    <svg class="cell-svg" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+      <!-- Cell Membrane (outer boundary) -->
+      <g id="org-membrane" class="organelle" data-id="membrane" tabindex="0" role="button" aria-label="Cell Membrane">
+        <ellipse cx="250" cy="200" rx="240" ry="180" fill="none" stroke="#8B4513" stroke-width="8" class="organelle-shape"/>
+        <ellipse cx="250" cy="200" rx="232" ry="172" fill="#FFF8DC" stroke="none"/>
+        <text x="250" y="30" class="organelle-label" text-anchor="middle">Membrane</text>
+      </g>
+
+      <!-- Cytoskeleton (filaments throughout) -->
+      <g id="org-cytoskeleton" class="organelle" data-id="cytoskeleton" tabindex="0" role="button" aria-label="Cytoskeleton">
+        <path d="M80,150 Q150,100 200,180 M300,120 Q350,200 420,150 M100,280 Q200,320 300,260 M380,300 Q420,250 450,280" 
+              stroke="#DDA0DD" stroke-width="2" fill="none" stroke-dasharray="5,3" class="organelle-shape"/>
+        <text x="420" y="100" class="organelle-label" text-anchor="middle">Cytoskeleton</text>
+      </g>
+
+      <!-- Nucleus -->
+      <g id="org-nucleus" class="organelle" data-id="nucleus" tabindex="0" role="button" aria-label="Nucleus">
+        <ellipse cx="250" cy="200" rx="80" ry="70" fill="#4169E1" fill-opacity="0.3" stroke="#4169E1" stroke-width="4" class="organelle-shape"/>
+        <!-- Nucleolus inside -->
+        <circle cx="250" cy="200" r="25" fill="#191970" fill-opacity="0.5" class="organelle-shape"/>
+        <!-- Nuclear pores (dots on membrane) -->
+        <text x="250" y="145" class="organelle-label" text-anchor="middle">Nucleus</text>
+      </g>
+
+      <!-- Nuclear Pores -->
+      <g id="org-nuclear-pores" class="organelle" data-id="nuclear-pores" tabindex="0" role="button" aria-label="Nuclear Pores">
+        <circle cx="175" cy="185" r="5" fill="#000080" class="organelle-shape"/>
+        <circle cx="180" cy="230" r="5" fill="#000080" class="organelle-shape"/>
+        <circle cx="325" cy="180" r="5" fill="#000080" class="organelle-shape"/>
+        <circle cx="320" cy="225" r="5" fill="#000080" class="organelle-shape"/>
+        <text x="145" y="170" class="organelle-label" text-anchor="end">Pores</text>
+      </g>
+
+      <!-- Rough ER -->
+      <g id="org-rough-er" class="organelle" data-id="rough-er" tabindex="0" role="button" aria-label="Rough Endoplasmic Reticulum">
+        <path d="M340,170 Q380,160 390,190 Q400,220 370,230 Q340,240 350,210 Q360,180 340,170" 
+              fill="#87CEEB" fill-opacity="0.4" stroke="#4682B4" stroke-width="2" class="organelle-shape"/>
+        <!-- Ribosomes (dots) -->
+        <circle cx="355" cy="175" r="3" fill="#4682B4"/>
+        <circle cx="385" cy="185" r="3" fill="#4682B4"/>
+        <circle cx="390" cy="210" r="3" fill="#4682B4"/>
+        <circle cx="365" cy="225" r="3" fill="#4682B4"/>
+        <circle cx="345" cy="205" r="3" fill="#4682B4"/>
+        <text x="380" y="155" class="organelle-label" text-anchor="middle">Rough ER</text>
+      </g>
+
+      <!-- Smooth ER -->
+      <g id="org-smooth-er" class="organelle" data-id="smooth-er" tabindex="0" role="button" aria-label="Smooth Endoplasmic Reticulum">
+        <path d="M100,180 Q130,160 140,190 Q150,220 120,235 Q90,250 95,215 Q100,180 100,180" 
+              fill="#98FB98" fill-opacity="0.4" stroke="#228B22" stroke-width="2" class="organelle-shape"/>
+        <text x="100" y="160" class="organelle-label" text-anchor="middle">Smooth ER</text>
+      </g>
+
+      <!-- Golgi Apparatus -->
+      <g id="org-golgi" class="organelle" data-id="golgi" tabindex="0" role="button" aria-label="Golgi Apparatus">
+        <path d="M380,280 Q420,275 430,290 Q420,305 380,300" fill="none" stroke="#DAA520" stroke-width="4" class="organelle-shape"/>
+        <path d="M385,290 Q425,285 435,300 Q425,315 385,310" fill="none" stroke="#DAA520" stroke-width="4" class="organelle-shape"/>
+        <path d="M390,300 Q430,295 440,310 Q430,325 390,320" fill="none" stroke="#DAA520" stroke-width="4" class="organelle-shape"/>
+        <text x="410" y="265" class="organelle-label" text-anchor="middle">Golgi</text>
+      </g>
+
+      <!-- Mitochondria -->
+      <g id="org-mitochondria" class="organelle" data-id="mitochondria" tabindex="0" role="button" aria-label="Mitochondria">
+        <ellipse cx="140" cy="300" rx="40" ry="20" fill="#FF6347" fill-opacity="0.5" stroke="#DC143C" stroke-width="2" class="organelle-shape"/>
+        <!-- Inner membrane folds -->
+        <path d="M110,300 Q120,290 130,300 Q140,310 150,300 Q160,290 170,300" fill="none" stroke="#DC143C" stroke-width="1.5"/>
+        <text x="140" y="275" class="organelle-label" text-anchor="middle">Mitochondria</text>
+      </g>
+
+      <!-- Lysosomes -->
+      <g id="org-lysosomes" class="organelle" data-id="lysosomes" tabindex="0" role="button" aria-label="Lysosomes">
+        <circle cx="200" cy="320" r="18" fill="#9370DB" fill-opacity="0.6" stroke="#8B008B" stroke-width="2" class="organelle-shape"/>
+        <text x="200" y="350" class="organelle-label" text-anchor="middle">Lysosomes</text>
+      </g>
+
+      <!-- Peroxisomes -->
+      <g id="org-peroxisomes" class="organelle" data-id="peroxisomes" tabindex="0" role="button" aria-label="Peroxisomes">
+        <circle cx="300" cy="320" r="15" fill="#20B2AA" fill-opacity="0.6" stroke="#008B8B" stroke-width="2" class="organelle-shape"/>
+        <text x="300" y="350" class="organelle-label" text-anchor="middle">Peroxisomes</text>
+      </g>
+
+      <!-- Vesicles -->
+      <g id="org-vesicles" class="organelle" data-id="vesicles" tabindex="0" role="button" aria-label="Vesicles and Vacuoles">
+        <circle cx="80" cy="240" r="12" fill="#FFD700" fill-opacity="0.5" stroke="#FFA500" stroke-width="2" class="organelle-shape"/>
+        <circle cx="420" cy="220" r="10" fill="#FFD700" fill-opacity="0.5" stroke="#FFA500" stroke-width="2" class="organelle-shape"/>
+        <circle cx="350" cy="340" r="8" fill="#FFD700" fill-opacity="0.5" stroke="#FFA500" stroke-width="2" class="organelle-shape"/>
+        <text x="60" y="220" class="organelle-label" text-anchor="middle">Vesicles</text>
+      </g>
+    </svg>
+
+    <!-- Info Panel (accordion style) -->
+    <div class="cell-info-panel" id="cell-info-panel">
+      <button class="cell-info-close" id="cell-info-close" aria-label="Close panel">×</button>
+      <h4 id="cell-info-title">Select an organelle</h4>
+      <div class="cell-info-section">
+        <strong>Cell Function:</strong>
+        <p id="cell-info-function">Click on any organelle in the cell diagram to learn about its function and polymer analogy.</p>
+      </div>
+      <div class="cell-info-section">
+        <strong>Polymer Analogy:</strong>
+        <p id="cell-info-polymer">—</p>
+      </div>
+      <div class="cell-info-section cell-info-justification">
+        <strong>Connection:</strong>
+        <p id="cell-info-justification">—</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Embed organelle data from YAML
+  window.cellPolymerData = [
+    {% for item in site.data.cell_polymer %}
+    {
+      id: "{{ item.id }}",
+      name: "{{ item.name }}",
+      function: "{{ item.function | escape }}",
+      polymer_analogy: "{{ item.polymer_analogy | escape }}",
+      justification: "{{ item.justification | escape }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>
+<script src="{{ '/assets/js/cell-polymer-widget.js' | relative_url }}" defer></script>
+

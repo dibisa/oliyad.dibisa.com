@@ -1,0 +1,68 @@
+# Cell organelle to polymer terminology correlations
+# Source: Animal cell anatomy table
+
+- id: nucleus
+  name: "Nucleus / Nucleolus"
+  function: "Genetic control; ribosome assembly"
+  polymer_analogy: "Monomer classification & polymerization center"
+  justification: "The nucleus directs cell activity by storing genetic information; analogously, polymer properties start from monomer identity and the chosen polymerization route (addition vs. condensation). The nucleolus maps to where monomers 'assemble' into chains."
+
+- id: nuclear-pores
+  name: "Nuclear Pores"
+  function: "Regulated exchange"
+  polymer_analogy: "Interfaces & additives (compatibilizers)"
+  justification: "Nuclear pores control what enters/exits the nucleus; similarly, compatibilizers and interfacial additives govern mixing/blending or copolymerizing otherwise incompatible components."
+
+- id: rough-er
+  name: "Rough Endoplasmic Reticulum"
+  function: "Protein synthesis and export prep"
+  polymer_analogy: "Polymer chain growth and branching"
+  justification: "RER builds proteins and routes them onward; analogously, polymer chains grow via addition/condensation, and branching/grafting adds side chains onto a backbone."
+
+- id: smooth-er
+  name: "Smooth Endoplasmic Reticulum"
+  function: "Lipid synthesis; detoxification"
+  polymer_analogy: "Plasticizers and additives"
+  justification: "SER synthesizes lipids and detoxifies; in polymers, plasticizers/stabilizers/fillers tune viscosity, flexibility, and stability—often mitigating degradation pathways."
+
+- id: golgi
+  name: "Golgi Apparatus"
+  function: "Modification, sorting, packaging"
+  polymer_analogy: "Post-polymer processing (compounding/blending; copolymer architecture)"
+  justification: "Golgi modifies and sorts biomolecules; analogously, compounding and blending add pigments/fillers/functional additives, and copolymer architectures (block/graft) organize segments along chains before final 'delivery' as products."
+
+- id: mitochondria
+  name: "Mitochondria"
+  function: "Energy production"
+  polymer_analogy: "Thermal/energetic behavior (Tg, Tm, exothermic cure; energy-storage polymers)"
+  justification: "Mitochondria convert nutrient energy into ATP; polymer analogs include thermal transitions (Tg/Tm), exothermic polymerization/cure, and (optionally) redox-active polymers that store/deliver electrical energy."
+
+- id: peroxisomes
+  name: "Peroxisomes"
+  function: "Oxidative metabolism; detox"
+  polymer_analogy: "Oxidative stability & aging/degradation"
+  justification: "Peroxisomes manage oxidative chemistry; analogously, oxidation/weathering and stabilizer packages govern polymer aging resistance under oxygen/UV/heat."
+
+- id: lysosomes
+  name: "Lysosomes"
+  function: "Breakdown of biomolecules/waste"
+  polymer_analogy: "Recycling and degradation pathways"
+  justification: "Lysosomes digest cellular waste; analogously, polymer end-of-life includes depolymerization, chemical/mechanical recycling, and biodegradation routes."
+
+- id: cytoskeleton
+  name: "Cytoskeleton"
+  function: "Structural support; transport tracks"
+  polymer_analogy: "Crosslinking and reinforcing fillers"
+  justification: "Cytoskeleton maintains shape; analogously, crosslinks and reinforcement (fibers/nanofillers) set stiffness/strength and control whether a material behaves as an elastomer, thermoplastic, or thermoset."
+
+- id: vesicles
+  name: "Vesicles & Vacuoles"
+  function: "Transport & storage"
+  polymer_analogy: "Polymer feedstock forms (pellets, powders, liquids, solutions)"
+  justification: "Vesicles/vacuoles move and store cargo; analogously, polymer raw materials are delivered/handled as pellets/flakes/powders/viscous liquids/solutions depending on processing needs."
+
+- id: membrane
+  name: "Cell Membrane"
+  function: "Selective barrier; interface with environment"
+  polymer_analogy: "Surface properties & interfaces"
+  justification: "Membranes regulate transport and interaction; analogously, polymer surfaces control adhesion, wetting, permeability, and biocompatibility, and can be modified (e.g., plasma/chemical treatments)."

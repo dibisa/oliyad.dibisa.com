@@ -392,3 +392,225 @@ body {
     width: 100%;
   }
 }
+
+/* ===== MOBILE-ONLY STYLES ===== */
+/* These only apply on phones and do NOT affect desktop */
+
+@media (max-width: 640px) {
+  /* === HIDE STICKY FOOTER ON MOBILE === */
+  .sticky-footer {
+    display: none !important;
+  }
+  
+  /* Remove footer padding from body on mobile */
+  body {
+    padding-bottom: 0 !important;
+  }
+  
+  /* === HOME PAGE MOBILE === */
+  .home header {
+    margin: 1rem 0 !important;
+    padding: 0 0.5rem;
+  }
+  
+  .home header p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* === CAROUSEL MOBILE === */
+  .carousel-container {
+    margin: 1rem 0;
+    padding: 0.75rem;
+    border-radius: 6px;
+  }
+  
+  .carousel-header {
+    margin-bottom: 1rem;
+  }
+  
+  .carousel-header h2 {
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+  
+  .carousel-header p {
+    font-size: 0.85rem;
+  }
+  
+  .media-viewer-wrapper {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
+  }
+  
+  .carousel-nav {
+    font-size: 2rem;
+    padding: 0.5rem;
+  }
+  
+  .media-viewer {
+    max-width: 100%;
+    border-radius: 6px;
+  }
+  
+  .media-nav-controls {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .media-nav-btn {
+    flex: 1 1 auto;
+    min-width: 80px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .media-counter {
+    width: 100%;
+    text-align: center;
+    order: -1;
+  }
+  
+  /* === PROJECT CARDS MOBILE === */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 0 0.25rem;
+  }
+  
+  .project-card {
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  
+  .project-card-title {
+    font-size: 1rem;
+  }
+  
+  .project-card-description {
+    font-size: 0.9rem;
+    margin: 0.5rem 0 0.75rem 0;
+  }
+  
+  .project-tags {
+    gap: 0.4rem;
+  }
+  
+  .tag {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  /* === ABOUT PAGE MOBILE === */
+  .page-content {
+    padding: 1rem 0.75rem;
+  }
+  
+  .post-title, 
+  .page-content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .social-links-list {
+    margin: 0.75rem 0;
+  }
+  
+  .social-links-list li {
+    margin: 0.4rem 0;
+  }
+  
+  .social-links-list a {
+    font-size: 1rem;
+    padding: 0.25rem 0;
+    display: inline-block;
+  }
+  
+  /* === CV PAGE MOBILE === */
+  .cv-section {
+    margin: 1.5rem 0;
+  }
+  
+  .cv-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .cv-section h3 {
+    font-size: 1rem;
+  }
+  
+  .cv-section ul {
+    padding-left: 1.25rem;
+  }
+  
+  .cv-section li {
+    font-size: 0.9rem;
+    margin: 0.4rem 0;
+  }
+  
+  /* === GENERAL MOBILE TYPOGRAPHY === */
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.1rem; }
+  
+  p, li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  /* === TOUCH-FRIENDLY LINKS === */
+  a {
+    padding: 0.1rem 0;
+  }
+  
+  /* === ELASTOMER DEMO MOBILE (already done but ensuring consistency) === */
+  .elastomer-demo {
+    padding: 0.75rem;
+    margin: 1rem 0;
+  }
+  
+  .elastomer-title {
+    font-size: 1.2rem !important;
+  }
+  
+  .elastomer-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .elastomer-canvas-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .canvas-wrapper canvas {
+    max-height: 200px;
+  }
+}
+
+/* === EXTRA SMALL PHONES (320px-400px) === */
+@media (max-width: 400px) {
+  .carousel-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .project-card {
+    padding: 0.75rem;
+  }
+  
+  .project-card-title {
+    font-size: 0.95rem;
+  }
+  
+  .elastomer-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .elastomer-readout {
+    font-size: 0.75rem;
+    gap: 0.5rem;
+  }
+}

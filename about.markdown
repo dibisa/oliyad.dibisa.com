@@ -11,9 +11,6 @@ My work focuses on sustainable latex-based materials, rheology, and NMR structur
 
 Outside the lab: soccer, photography, and ideas about where materials R&D are heading next.
 
-<div class="about-two-column">
-<div class="about-connect-column" markdown="1">
-
 **Connect with me**
 
 {% if site.social_links %}
@@ -21,10 +18,3 @@ Outside the lab: soccer, photography, and ideas about where materials R&D are he
 - [{{ s.label }}]({{ s.url }})
 {% endfor %}
 {% endif %}
-
-</div>
-<div class="about-widget-column">
-{% include cell-polymer-widget.html %}
-</div>
-</div>
-

@@ -1,6 +1,6 @@
 <div class="elastomer-demo" id="elastomer-demo">
   <div class="elastomer-header">
-    <h3>🎓 Since You Visited — Learn About Rubbers!</h3>
+    <h2 class="elastomer-title">Since you visited — let's learn about my research!</h2>
     <p class="elastomer-subtitle">
       <strong>Why do rubbers snap back?</strong> Unlike metals, rubber elasticity comes from <em>entropy</em>, not energy. 
       Stretched chains lose randomness (↓ entropy) and want to recoil. At very high strains, chains align and crystallize — 
@@ -25,16 +25,16 @@
   <div class="elastomer-canvas-grid">
     <div class="canvas-wrapper">
       <div class="canvas-label">Macro State</div>
-      <canvas id="macroCanvas"></canvas>
+      <canvas id="macroCanvas" width="300" height="240"></canvas>
     </div>
     <div class="canvas-wrapper">
-      <div class="canvas-label">Microstate (conceptual)</div>
-      <canvas id="microCanvas"></canvas>
+      <div class="canvas-label">Microstate (just a cartoon)</div>
+      <canvas id="microCanvas" width="300" height="240"></canvas>
       <div class="canvas-sublabel">Entropy ↓, Order ↑</div>
     </div>
     <div class="canvas-wrapper">
       <div class="canvas-label">Stress–Strain Curve</div>
-      <canvas id="curveCanvas"></canvas>
+      <canvas id="curveCanvas" width="300" height="240"></canvas>
     </div>
   </div>
 </div>
@@ -55,9 +55,10 @@
   margin-bottom: 0.75rem;
 }
 
-.elastomer-header h3 {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.1rem;
+.elastomer-header h2.elastomer-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 400;
   color: #333;
 }
 

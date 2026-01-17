@@ -124,7 +124,11 @@
   // Resize all canvases
   function resizeCanvases() {
     const wrapper = macroCanvas.parentElement;
-    const w = wrapper.clientWidth || 200;
+    // Use wrapper width, fall back to canvas attribute, then default
+    let w = wrapper.clientWidth;
+    if (!w || w < 50) {
+      w = parseInt(macroCanvas.getAttribute('width')) || 300;
+    }
     const h = Math.round(w * 0.8);
 
     setupCanvas(macroCanvas, macroCtx, w, h);
@@ -542,9 +546,27 @@
     }, 100);
   });
 
-  // Initialize
-  initBalls();
-  resizeCanvases();
-  animate(0);
+  // Initialize - use small delay to ensure DOM is fully rendered
+  function init() {
+    initBalls();
+    resizeCanvases();
+    // Force an initial draw
+    const wrapper = macroCanvas.parentElement;
+    let w = wrapper.clientWidth;
+    if (!w || w < 50) w = 300;
+    const h = Math.round(w * 0.8);
+    drawMacro(w, h);
+    drawMicro(w, h);
+    drawCurve(w, h);
+    // Start animation loop
+    animate(0);
+  }
+
+  // Run init after a brief delay to ensure layout is complete
+  if (document.readyState === 'complete') {
+    setTimeout(init, 50);
+  } else {
+    window.addEventListener('load', () => setTimeout(init, 50));
+  }
 
 })();

@@ -1,0 +1,183 @@
+<div class="elastomer-demo" id="elastomer-demo">
+  <div class="elastomer-header">
+    <h3>🔬 Elastomers: Entropy-Driven Elasticity</h3>
+    <p class="elastomer-subtitle">
+      Conceptual teaching model: entropy reduction → chain ordering under strain (strain-induced crystallization)
+    </p>
+  </div>
+
+  <div class="elastomer-controls">
+    <button id="elastomer-play" class="elastomer-btn" aria-label="Play/Pause">▶ Play</button>
+    <label class="elastomer-slider-label">
+      Strain:
+      <input type="range" id="elastomer-strain" min="0" max="10" step="0.05" value="0">
+    </label>
+    <label class="elastomer-toggle-label">
+      <input type="checkbox" id="elastomer-mode">
+      <span class="toggle-text">Compression</span>
+    </label>
+  </div>
+
+  <div class="elastomer-readout">
+    <span>Strain: <strong id="readout-strain">0%</strong></span>
+    <span>Stress: <strong id="readout-stress">0.00 MPa</strong></span>
+    <span>Order: <strong id="readout-order">0.00</strong></span>
+  </div>
+
+  <div class="elastomer-canvas-grid">
+    <div class="canvas-wrapper">
+      <div class="canvas-label">Macro State</div>
+      <canvas id="macroCanvas"></canvas>
+    </div>
+    <div class="canvas-wrapper">
+      <div class="canvas-label">Microstate (conceptual)</div>
+      <canvas id="microCanvas"></canvas>
+      <div class="canvas-sublabel">Entropy ↓, Order ↑</div>
+    </div>
+    <div class="canvas-wrapper">
+      <div class="canvas-label">Stress–Strain Curve</div>
+      <canvas id="curveCanvas"></canvas>
+    </div>
+  </div>
+</div>
+
+<style>
+.elastomer-demo {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem;
+  max-width: 900px;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.elastomer-header {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.elastomer-header h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.elastomer-subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+.elastomer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.elastomer-btn {
+  background: #4169E1;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  min-width: 80px;
+}
+
+.elastomer-btn:hover {
+  background: #3457b2;
+}
+
+.elastomer-slider-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.elastomer-slider-label input[type="range"] {
+  width: 120px;
+}
+
+.elastomer-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.elastomer-readout {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: #444;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.elastomer-readout strong {
+  color: #4169E1;
+}
+
+.elastomer-canvas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.canvas-wrapper {
+  text-align: center;
+}
+
+.canvas-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+.canvas-sublabel {
+  font-size: 0.7rem;
+  color: #888;
+  margin-top: 0.2rem;
+}
+
+.canvas-wrapper canvas {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 700px) {
+  .elastomer-canvas-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .elastomer-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .elastomer-readout {
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: center;
+  }
+}
+</style>
+
+<script src="{{ '/assets/js/elastomer-demo.js' | relative_url }}"></script>

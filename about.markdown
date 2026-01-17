@@ -5,53 +5,36 @@ permalink: /about/
 ---
 
 
-Hi — I’m Oliyad Dibisa, a PhD candidate in Mechanical Engineering.
+Hi — I'm Oliyad Dibisa, a PhD candidate in Mechanical Engineering.
 
 My work focuses on sustainable latex-based materials, rheology, and NMR structure–property analysis, with applications in UV-curable systems and additive manufacturing.
 
 Outside the lab: soccer, photography, and ideas about where materials R&D are heading next.
 
-<div class="about-layout">
-<div class="about-left">
-
 **Connect with me**
 
 {% if site.social_links %}
+<ul class="social-links-list">
 {% for s in site.social_links %}
-- [{{ s.label }}]({{ s.url }})
+<li><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }}</a></li>
 {% endfor %}
+</ul>
 {% endif %}
 
-</div>
-<div class="about-right">
+---
+
 {% include elastomer-demo.html %}
-</div>
-</div>
 
 <style>
-.about-layout {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
+.social-links-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0 1rem 0;
 }
-.about-left {
-  flex: 0 0 200px;
-  min-width: 180px;
+.social-links-list li {
+  margin: 0.3rem 0;
 }
-.about-right {
-  flex: 1 1 500px;
-  min-width: 300px;
-}
-@media (max-width: 700px) {
-  .about-layout {
-    flex-direction: column;
-  }
-  .about-left, .about-right {
-    flex: 1 1 100%;
-    min-width: 100%;
-  }
+.social-links-list a {
+  color: #0066cc;
 }
 </style>
-

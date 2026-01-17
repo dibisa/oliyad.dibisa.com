@@ -1,6 +1,6 @@
 /**
  * Elastomer Demo - Interactive stress-strain visualization
- * Shows macro tensile test, micro chain ordering, and stress-strain curve
+ * Shows macro tensile test, micro chain behavior, and progressive stress-strain curve
  */
 
 (function() {
@@ -12,7 +12,6 @@
 
   const playBtn = document.getElementById('elastomer-play');
   const strainSlider = document.getElementById('elastomer-strain');
-  const modeToggle = document.getElementById('elastomer-mode');
   const readoutStrain = document.getElementById('readout-strain');
   const readoutStress = document.getElementById('readout-stress');
   const readoutOrder = document.getElementById('readout-order');
@@ -30,35 +29,58 @@
     strain: 0,          // 0 to 10 (0% to 1000%)
     stress: 0,          // MPa
     order: 0,           // 0 to 1
-    isCompression: false,
     isPlaying: false,
     time: 0,
-    direction: 1        // 1 = stretching, -1 = relaxing
+    direction: 1,       // 1 = stretching, -1 = relaxing
+    maxStrainReached: 0 // For progressive curve drawing
   };
 
-  // Micro balls
-  const NUM_BALLS = 40;
+  // Micro balls (polymer chain segments)
+  const NUM_BALLS = 30;
   let balls = [];
+  let bonds = []; // Cohesive bonds between nearby balls
 
   // Initialize balls with random positions
   function initBalls() {
     balls = [];
     for (let i = 0; i < NUM_BALLS; i++) {
       balls.push({
-        x: 0.2 + Math.random() * 0.6,  // normalized 0-1
+        x: 0.15 + Math.random() * 0.7,
         y: 0.15 + Math.random() * 0.7,
         baseX: 0,
         baseY: 0,
-        targetX: 0,
-        targetY: 0,
-        jitter: Math.random() * 0.02
+        vx: (Math.random() - 0.5) * 0.002,
+        vy: (Math.random() - 0.5) * 0.002
       });
     }
-    // Store base positions
     balls.forEach(b => {
       b.baseX = b.x;
       b.baseY = b.y;
     });
+    
+    // Create initial bonds between nearby balls
+    createBonds();
+  }
+
+  function createBonds() {
+    bonds = [];
+    const bondDist = 0.25;
+    for (let i = 0; i < balls.length; i++) {
+      for (let j = i + 1; j < balls.length; j++) {
+        const dx = balls[i].baseX - balls[j].baseX;
+        const dy = balls[i].baseY - balls[j].baseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < bondDist) {
+          bonds.push({
+            i: i,
+            j: j,
+            restLength: dist,
+            broken: false,
+            breakStrain: 1.5 + Math.random() * 2 // Breaks between strain 1.5-3.5
+          });
+        }
+      }
+    }
   }
 
   // Calculate stress from strain (conceptual S-curve)
@@ -66,15 +88,15 @@
     const s = Math.abs(strain);
     
     if (s < 1.5) {
-      // Initial modulus region: E ≈ 0.6 MPa
+      // Initial modulus region: cohesive network provides stiffness
       return 0.6 * s;
     } else if (s < 5.5) {
-      // Plateau region: gradual rise
-      const base = 0.6 * 1.5; // ~0.9
+      // Plateau region: bonds broken, entropic elasticity dominates
+      const base = 0.6 * 1.5;
       return base + 0.08 * (s - 1.5);
     } else {
       // Strain-induced crystallization upturn
-      const base = 0.6 * 1.5 + 0.08 * 4; // ~1.22
+      const base = 0.6 * 1.5 + 0.08 * 4;
       const upturn = Math.pow((s - 5.5) / 4.5, 1.8) * 2.8;
       return base + upturn;
     }
@@ -103,14 +125,14 @@
   function resizeCanvases() {
     const wrapper = macroCanvas.parentElement;
     const w = wrapper.clientWidth || 200;
-    const h = Math.round(w * 0.75); // 4:3 aspect
+    const h = Math.round(w * 0.8);
 
     setupCanvas(macroCanvas, macroCtx, w, h);
     setupCanvas(microCanvas, microCtx, w, h);
     setupCanvas(curveCanvas, curveCtx, w, h);
   }
 
-  // Draw Macro Canvas (tensile tester)
+  // Draw Macro Canvas (tensile tester with moving top grip)
   function drawMacro(w, h) {
     const ctx = macroCtx;
     ctx.clearRect(0, 0, w, h);
@@ -119,113 +141,99 @@
     ctx.fillStyle = '#f5f5f5';
     ctx.fillRect(0, 0, w, h);
 
-    const strainFactor = state.isCompression ? -state.strain / 10 : state.strain / 10;
+    const strainFactor = state.strain / 10;
     
-    // Grips
-    const gripW = w * 0.15;
-    const gripH = h * 0.12;
-    const gripY = h * 0.4;
+    // Fixed positions
+    const gripW = w * 0.25;
+    const gripH = h * 0.08;
+    const centerX = w * 0.5;
     
-    // Top grip
-    ctx.fillStyle = '#555';
-    ctx.fillRect(w * 0.1, h * 0.08, gripW, gripH);
+    // Bottom grip - FIXED at bottom
+    const bottomGripY = h * 0.85;
+    ctx.fillStyle = '#444';
+    ctx.fillRect(centerX - gripW/2, bottomGripY, gripW, gripH);
     
-    // Bottom grip
-    ctx.fillRect(w * 0.1, h * 0.8, gripW, gripH);
+    // Top grip - MOVES UP with strain
+    const topGripBaseY = h * 0.15;
+    const topGripY = topGripBaseY - strainFactor * h * 0.35;
+    ctx.fillStyle = '#444';
+    ctx.fillRect(centerX - gripW/2, topGripY - gripH, gripW, gripH);
 
-    // Specimen
-    const specX = w * 0.1 + gripW * 0.25;
-    const specW = gripW * 0.5;
-    const specTopY = h * 0.08 + gripH;
-    const specBottomY = h * 0.8;
+    // Specimen - connected to both grips
+    const specW = gripW * 0.4;
+    const specTopY = topGripY;
+    const specBottomY = bottomGripY;
     
-    // Stretch/compress the specimen
-    const baseHeight = specBottomY - specTopY;
-    const stretchedHeight = baseHeight * (1 + strainFactor * 0.6);
-    const newBottomY = specTopY + stretchedHeight;
-    
-    // Width changes inversely (Poisson effect)
-    const widthFactor = 1 - strainFactor * 0.15;
-    const newSpecW = specW * widthFactor;
-    const specXOffset = (specW - newSpecW) / 2;
+    // Poisson effect - width decreases as length increases
+    const widthFactor = 1 / Math.sqrt(1 + strainFactor * 0.6);
+    const currentSpecW = specW * widthFactor;
 
-    // Specimen body
-    ctx.fillStyle = state.isCompression ? '#e67e22' : '#3498db';
-    ctx.fillRect(specX + specXOffset, specTopY, newSpecW, stretchedHeight);
+    // Draw specimen with gradient
+    const grad = ctx.createLinearGradient(centerX - currentSpecW/2, 0, centerX + currentSpecW/2, 0);
+    grad.addColorStop(0, '#5dade2');
+    grad.addColorStop(0.5, '#3498db');
+    grad.addColorStop(1, '#5dade2');
+    ctx.fillStyle = grad;
+    ctx.fillRect(centerX - currentSpecW/2, specTopY, currentSpecW, specBottomY - specTopY);
 
-    // Gauge section highlight
-    const gaugeY = specTopY + stretchedHeight * 0.35;
-    const gaugeH = stretchedHeight * 0.3;
+    // Gauge section highlight (middle third)
+    const gaugeY = specTopY + (specBottomY - specTopY) * 0.35;
+    const gaugeH = (specBottomY - specTopY) * 0.3;
     ctx.strokeStyle = '#e74c3c';
     ctx.lineWidth = 2;
-    ctx.setLineDash([4, 2]);
-    ctx.strokeRect(specX + specXOffset - 2, gaugeY, newSpecW + 4, gaugeH);
+    ctx.setLineDash([4, 3]);
+    ctx.strokeRect(centerX - currentSpecW/2 - 3, gaugeY, currentSpecW + 6, gaugeH);
     ctx.setLineDash([]);
 
-    // Zoom callout line to micro canvas
+    // Zoom callout arrow
     ctx.strokeStyle = '#e74c3c';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.moveTo(specX + specXOffset + newSpecW + 5, gaugeY + gaugeH / 2);
-    ctx.lineTo(w * 0.85, gaugeY + gaugeH / 2);
+    ctx.moveTo(centerX + currentSpecW/2 + 8, gaugeY + gaugeH/2);
+    ctx.lineTo(w * 0.9, gaugeY + gaugeH/2);
     ctx.stroke();
     
-    // Arrow
+    // Arrow head
     ctx.beginPath();
-    ctx.moveTo(w * 0.85, gaugeY + gaugeH / 2);
-    ctx.lineTo(w * 0.82, gaugeY + gaugeH / 2 - 4);
-    ctx.lineTo(w * 0.82, gaugeY + gaugeH / 2 + 4);
+    ctx.moveTo(w * 0.9, gaugeY + gaugeH/2);
+    ctx.lineTo(w * 0.87, gaugeY + gaugeH/2 - 5);
+    ctx.lineTo(w * 0.87, gaugeY + gaugeH/2 + 5);
     ctx.closePath();
     ctx.fillStyle = '#e74c3c';
     ctx.fill();
 
     // Labels
     ctx.fillStyle = '#333';
-    ctx.font = '10px sans-serif';
+    ctx.font = 'bold 10px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('Grip', w * 0.1 + gripW / 2, h * 0.06);
-    ctx.fillText('Grip', w * 0.1 + gripW / 2, h * 0.96);
+    ctx.fillText('Moving Grip', centerX, topGripY - gripH - 5);
+    ctx.fillText('Fixed Grip', centerX, bottomGripY + gripH + 12);
     
-    // Force arrows
-    const arrowX = w * 0.35;
-    ctx.strokeStyle = '#2ecc71';
-    ctx.lineWidth = 2;
-    
+    // Force arrow on top grip
     if (state.strain > 0.1) {
-      // Top arrow (down force)
+      ctx.strokeStyle = '#27ae60';
+      ctx.lineWidth = 2.5;
       ctx.beginPath();
-      ctx.moveTo(arrowX, h * 0.05);
-      ctx.lineTo(arrowX, h * 0.12);
+      ctx.moveTo(centerX, topGripY - gripH - 15);
+      ctx.lineTo(centerX, topGripY - gripH - 35);
       ctx.stroke();
-      drawArrowHead(ctx, arrowX, h * 0.12, 'down');
       
-      // Bottom arrow (up force in tension) or down in compression
+      // Arrow head pointing up
       ctx.beginPath();
-      ctx.moveTo(arrowX, h * 0.95);
-      ctx.lineTo(arrowX, h * 0.88);
-      ctx.stroke();
-      drawArrowHead(ctx, arrowX, h * 0.88, 'up');
+      ctx.moveTo(centerX, topGripY - gripH - 35);
+      ctx.lineTo(centerX - 6, topGripY - gripH - 25);
+      ctx.lineTo(centerX + 6, topGripY - gripH - 25);
+      ctx.closePath();
+      ctx.fillStyle = '#27ae60';
+      ctx.fill();
+      
+      ctx.font = '9px sans-serif';
+      ctx.fillStyle = '#27ae60';
+      ctx.fillText('F', centerX + 12, topGripY - gripH - 25);
     }
   }
 
-  function drawArrowHead(ctx, x, y, dir) {
-    const size = 5;
-    ctx.beginPath();
-    if (dir === 'down') {
-      ctx.moveTo(x, y);
-      ctx.lineTo(x - size, y - size);
-      ctx.lineTo(x + size, y - size);
-    } else {
-      ctx.moveTo(x, y);
-      ctx.lineTo(x - size, y + size);
-      ctx.lineTo(x + size, y + size);
-    }
-    ctx.closePath();
-    ctx.fillStyle = '#2ecc71';
-    ctx.fill();
-  }
-
-  // Draw Micro Canvas (balls representing polymer chains)
+  // Draw Micro Canvas with bonds
   function drawMicro(w, h) {
     const ctx = microCtx;
     ctx.clearRect(0, 0, w, h);
@@ -234,63 +242,114 @@
     ctx.fillStyle = '#fafafa';
     ctx.fillRect(0, 0, w, h);
 
-    // Border
+    // Border (zoom from macro)
     ctx.strokeStyle = '#e74c3c';
     ctx.lineWidth = 2;
-    ctx.strokeRect(5, 5, w - 10, h - 10);
+    ctx.strokeRect(4, 4, w - 8, h - 8);
 
-    const strainFactor = state.isCompression ? -state.strain / 10 : state.strain / 10;
+    const strainFactor = state.strain / 10;
     const order = state.order;
 
     // Update ball positions
     balls.forEach((ball, i) => {
-      // Affine deformation
-      const deformedX = ball.baseX + (ball.baseX - 0.5) * strainFactor * 0.8;
+      // Affine deformation in x direction
+      const deformedX = 0.5 + (ball.baseX - 0.5) * (1 + strainFactor * 1.2);
       
-      // As order increases, align into lanes
+      // At high order, align into horizontal lanes
       const laneCount = 5;
-      const laneY = (Math.floor(i / (NUM_BALLS / laneCount)) + 0.5) / laneCount;
+      const laneIndex = Math.floor(i / (NUM_BALLS / laneCount));
+      const laneY = (laneIndex + 0.5) / laneCount;
       const targetY = ball.baseY * (1 - order) + laneY * order;
       
-      // Jitter decreases with order
-      const jitterAmount = ball.jitter * (1 - order * 0.9);
-      const jitterX = Math.sin(state.time * 3 + i) * jitterAmount;
-      const jitterY = Math.cos(state.time * 2.5 + i * 1.3) * jitterAmount;
+      // Random jitter decreases with order
+      const jitterScale = (1 - order * 0.95);
+      ball.vx += (Math.random() - 0.5) * 0.001 * jitterScale;
+      ball.vy += (Math.random() - 0.5) * 0.001 * jitterScale;
+      ball.vx *= 0.95;
+      ball.vy *= 0.95;
       
-      ball.x = deformedX + jitterX;
-      ball.y = targetY + jitterY;
+      ball.x = deformedX + ball.vx * 10;
+      ball.y = targetY + ball.vy * 10;
+      
+      // Keep in bounds
+      ball.x = Math.max(0.08, Math.min(0.92, ball.x));
+      ball.y = Math.max(0.08, Math.min(0.92, ball.y));
+    });
+
+    // Update bond states
+    bonds.forEach(bond => {
+      if (!bond.broken && state.strain > bond.breakStrain) {
+        bond.broken = true;
+      }
+      // Bonds can reform at high order (crystallization)
+      if (bond.broken && order > 0.6) {
+        bond.broken = false;
+      }
+    });
+
+    // Draw bonds first (behind balls)
+    bonds.forEach(bond => {
+      const b1 = balls[bond.i];
+      const b2 = balls[bond.j];
+      const x1 = b1.x * (w - 16) + 8;
+      const y1 = b1.y * (h - 16) + 8;
+      const x2 = b2.x * (w - 16) + 8;
+      const y2 = b2.y * (h - 16) + 8;
+      
+      if (!bond.broken) {
+        // Active bond - solid line
+        const bondColor = order > 0.5 ? '#8e44ad' : '#3498db';
+        ctx.strokeStyle = bondColor;
+        ctx.lineWidth = order > 0.5 ? 2 : 1.5;
+        ctx.globalAlpha = order > 0.5 ? 0.8 : 0.6;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
     });
 
     // Draw balls
-    const ballRadius = Math.max(4, w * 0.025);
+    const ballRadius = Math.max(5, w * 0.028);
     balls.forEach((ball, i) => {
-      const x = ball.x * (w - 20) + 10;
-      const y = ball.y * (h - 20) + 10;
+      const x = ball.x * (w - 16) + 8;
+      const y = ball.y * (h - 16) + 8;
       
-      // Color gradient based on order
-      const hue = 200 + order * 60; // blue to purple
-      ctx.fillStyle = `hsl(${hue}, 70%, 55%)`;
+      // Color based on state
+      let hue = 200; // blue
+      if (order > 0.3) {
+        hue = 200 + order * 80; // shift toward purple
+      }
       
+      ctx.fillStyle = `hsl(${hue}, 65%, 50%)`;
       ctx.beginPath();
       ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
       ctx.fill();
       
-      // Draw connecting lines at high order (chain segments)
-      if (order > 0.5 && i > 0 && i % 8 !== 0) {
-        const prevBall = balls[i - 1];
-        const px = prevBall.x * (w - 20) + 10;
-        const py = prevBall.y * (h - 20) + 10;
-        ctx.strokeStyle = `hsla(${hue}, 70%, 45%, ${order * 0.5})`;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(px, py);
-        ctx.lineTo(x, y);
-        ctx.stroke();
-      }
+      // Subtle outline
+      ctx.strokeStyle = `hsl(${hue}, 65%, 35%)`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
     });
+
+    // Phase labels
+    ctx.font = '9px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#666';
+    
+    if (state.strain < 1.5) {
+      ctx.fillText('Cohesive network', 8, h - 8);
+    } else if (state.strain < 5) {
+      ctx.fillText('Bonds breaking...', 8, h - 8);
+    } else if (order > 0.3) {
+      ctx.fillText('Crystallizing!', 8, h - 8);
+    } else {
+      ctx.fillText('Entropic regime', 8, h - 8);
+    }
   }
 
-  // Draw Curve Canvas (stress-strain)
+  // Draw Curve Canvas - PROGRESSIVE drawing
   function drawCurve(w, h) {
     const ctx = curveCtx;
     ctx.clearRect(0, 0, w, h);
@@ -299,13 +358,13 @@
     ctx.fillStyle = '#fff';
     ctx.fillRect(0, 0, w, h);
 
-    const padding = { left: 35, right: 10, top: 15, bottom: 30 };
+    const padding = { left: 40, right: 15, top: 20, bottom: 35 };
     const plotW = w - padding.left - padding.right;
     const plotH = h - padding.top - padding.bottom;
 
     // Axes
     ctx.strokeStyle = '#333';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(padding.left, padding.top);
     ctx.lineTo(padding.left, h - padding.bottom);
@@ -314,82 +373,105 @@
 
     // Axis labels
     ctx.fillStyle = '#333';
-    ctx.font = '9px sans-serif';
+    ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('Strain (%)', w / 2, h - 5);
     
     ctx.save();
-    ctx.translate(10, h / 2);
+    ctx.translate(12, h / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillText('Stress (MPa)', 0, 0);
     ctx.restore();
 
-    // X-axis ticks (0, 250, 500, 750, 1000%)
-    const xTicks = [0, 250, 500, 750, 1000];
+    // X-axis ticks
     ctx.font = '8px sans-serif';
+    const xTicks = [0, 250, 500, 750, 1000];
     xTicks.forEach(val => {
       const x = padding.left + (val / 1000) * plotW;
-      ctx.fillText(val.toString(), x, h - padding.bottom + 12);
+      ctx.fillStyle = '#333';
+      ctx.fillText(val.toString(), x, h - padding.bottom + 14);
+      ctx.strokeStyle = '#ddd';
+      ctx.lineWidth = 0.5;
       ctx.beginPath();
-      ctx.moveTo(x, h - padding.bottom);
-      ctx.lineTo(x, h - padding.bottom + 3);
+      ctx.moveTo(x, padding.top);
+      ctx.lineTo(x, h - padding.bottom);
       ctx.stroke();
     });
 
-    // Y-axis ticks (0, 1, 2, 3, 4 MPa)
+    // Y-axis ticks
     const yTicks = [0, 1, 2, 3, 4];
     ctx.textAlign = 'right';
     yTicks.forEach(val => {
       const y = h - padding.bottom - (val / 4) * plotH;
-      ctx.fillText(val.toString(), padding.left - 5, y + 3);
+      ctx.fillStyle = '#333';
+      ctx.fillText(val.toString(), padding.left - 6, y + 3);
+      ctx.strokeStyle = '#ddd';
+      ctx.lineWidth = 0.5;
       ctx.beginPath();
-      ctx.moveTo(padding.left - 3, y);
-      ctx.lineTo(padding.left, y);
+      ctx.moveTo(padding.left, y);
+      ctx.lineTo(w - padding.right, y);
       ctx.stroke();
     });
 
-    // Draw the curve
-    ctx.strokeStyle = '#3498db';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    
-    for (let s = 0; s <= 10; s += 0.1) {
-      const stress = calculateStress(s);
-      const x = padding.left + (s / 10) * plotW;
-      const y = h - padding.bottom - (stress / 4) * plotH;
+    // Draw curve ONLY up to current max strain reached
+    const maxStrain = Math.max(state.strain, state.maxStrainReached);
+    state.maxStrainReached = maxStrain;
+
+    if (maxStrain > 0.05) {
+      ctx.strokeStyle = '#3498db';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
       
-      if (s === 0) {
-        ctx.moveTo(x, y);
-      } else {
-        ctx.lineTo(x, y);
+      let firstPoint = true;
+      for (let s = 0; s <= maxStrain; s += 0.05) {
+        const stress = calculateStress(s);
+        const x = padding.left + (s / 10) * plotW;
+        const y = h - padding.bottom - (stress / 4) * plotH;
+        
+        if (firstPoint) {
+          ctx.moveTo(x, y);
+          firstPoint = false;
+        } else {
+          ctx.lineTo(x, y);
+        }
       }
+      ctx.stroke();
     }
-    ctx.stroke();
 
-    // Current point
-    const currentX = padding.left + (state.strain / 10) * plotW;
-    const currentY = h - padding.bottom - (state.stress / 4) * plotH;
-    
-    ctx.fillStyle = '#e74c3c';
-    ctx.beginPath();
-    ctx.arc(currentX, currentY, 6, 0, Math.PI * 2);
-    ctx.fill();
+    // Current point (red dot)
+    if (state.strain > 0.02) {
+      const currentX = padding.left + (state.strain / 10) * plotW;
+      const currentY = h - padding.bottom - (state.stress / 4) * plotH;
+      
+      ctx.fillStyle = '#e74c3c';
+      ctx.beginPath();
+      ctx.arc(currentX, currentY, 7, 0, Math.PI * 2);
+      ctx.fill();
+      
+      ctx.fillStyle = '#fff';
+      ctx.beginPath();
+      ctx.arc(currentX, currentY, 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
 
-    // Region labels
+    // Region labels (only show if we've reached that region)
     ctx.font = '8px sans-serif';
     ctx.fillStyle = '#888';
     ctx.textAlign = 'center';
     
-    // Initial modulus region
-    ctx.fillText('Initial', padding.left + plotW * 0.08, padding.top + 15);
-    ctx.fillText('modulus', padding.left + plotW * 0.08, padding.top + 24);
+    if (maxStrain > 0.5) {
+      ctx.fillText('Initial', padding.left + plotW * 0.07, padding.top + 20);
+      ctx.fillText('modulus', padding.left + plotW * 0.07, padding.top + 30);
+    }
     
-    // Plateau
-    ctx.fillText('Plateau', padding.left + plotW * 0.35, padding.top + 45);
+    if (maxStrain > 3) {
+      ctx.fillText('Plateau', padding.left + plotW * 0.35, padding.top + 50);
+    }
     
-    // SIC region
-    ctx.fillText('Strain-induced', padding.left + plotW * 0.78, padding.top + 20);
-    ctx.fillText('crystallization', padding.left + plotW * 0.78, padding.top + 29);
+    if (maxStrain > 6) {
+      ctx.fillText('Strain-induced', padding.left + plotW * 0.78, padding.top + 25);
+      ctx.fillText('crystallization', padding.left + plotW * 0.78, padding.top + 35);
+    }
   }
 
   // Animation loop
@@ -401,11 +483,11 @@
     const dt = (timestamp - lastTime) / 1000;
     lastTime = timestamp;
 
+    state.time += dt;
+
     if (state.isPlaying) {
-      state.time += dt;
-      
       // Auto-cycle strain
-      state.strain += state.direction * dt * 1.2;
+      state.strain += state.direction * dt * 1.5;
       
       if (state.strain >= 10) {
         state.strain = 10;
@@ -430,7 +512,7 @@
     // Get canvas dimensions
     const wrapper = macroCanvas.parentElement;
     const w = wrapper.clientWidth || 200;
-    const h = Math.round(w * 0.75);
+    const h = Math.round(w * 0.8);
 
     // Draw all canvases
     drawMacro(w, h);
@@ -448,13 +530,7 @@
 
   strainSlider.addEventListener('input', (e) => {
     state.strain = parseFloat(e.target.value);
-    state.isPlaying = false;
-    playBtn.textContent = '▶ Play';
-  });
-
-  modeToggle.addEventListener('change', (e) => {
-    state.isCompression = e.target.checked;
-    e.target.nextElementSibling.textContent = state.isCompression ? 'Compression' : 'Tension';
+    // Don't stop playing, just update position
   });
 
   // Handle resize

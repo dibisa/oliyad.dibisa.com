@@ -148,28 +148,29 @@
     const strainFactor = state.strain / 10;
     
     // Fixed positions
-    const gripW = w * 0.25;
-    const gripH = h * 0.08;
+    const gripW = w * 0.22;
+    const gripH = h * 0.06;
     const centerX = w * 0.5;
     
-    // Bottom grip - FIXED at bottom
-    const bottomGripY = h * 0.75;
+    // Both grips stay FIXED - sample stretches between them
+    const bottomGripY = h * 0.78;
+    const topGripY = h * 0.15;
+    
+    // Draw top grip
+    ctx.fillStyle = '#444';
+    ctx.fillRect(centerX - gripW/2, topGripY, gripW, gripH);
+    
+    // Draw bottom grip
     ctx.fillStyle = '#444';
     ctx.fillRect(centerX - gripW/2, bottomGripY, gripW, gripH);
-    
-    // Top grip - MOVES UP with strain (limited movement to stay in frame)
-    const topGripBaseY = h * 0.25;
-    const topGripY = topGripBaseY - strainFactor * h * 0.12;
-    ctx.fillStyle = '#444';
-    ctx.fillRect(centerX - gripW/2, topGripY - gripH, gripW, gripH);
 
-    // Specimen - connected to both grips
-    const specW = gripW * 0.4;
-    const specTopY = topGripY;
+    // Specimen - stretches visually by getting thinner (Poisson effect)
+    const specW = gripW * 0.35;
+    const specTopY = topGripY + gripH;
     const specBottomY = bottomGripY;
     
-    // Poisson effect - width decreases as length increases
-    const widthFactor = 1 / Math.sqrt(1 + strainFactor * 0.6);
+    // Poisson effect - width decreases as strain increases
+    const widthFactor = 1 / Math.sqrt(1 + strainFactor * 1.5);
     const currentSpecW = specW * widthFactor;
 
     // Draw specimen with gradient
@@ -208,32 +209,40 @@
 
     // Labels
     ctx.fillStyle = '#333';
-    ctx.font = 'bold 10px sans-serif';
+    ctx.font = 'bold 9px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('Moving Grip', centerX, topGripY - gripH - 5);
-    ctx.fillText('Fixed Grip', centerX, bottomGripY + gripH + 12);
+    ctx.fillText('Top Grip', centerX, topGripY - 3);
+    ctx.fillText('Bottom Grip', centerX, bottomGripY + gripH + 12);
     
-    // Force arrow on top grip
+    // Force arrows showing tension
     if (state.strain > 0.1) {
       ctx.strokeStyle = '#27ae60';
-      ctx.lineWidth = 2.5;
-      ctx.beginPath();
-      ctx.moveTo(centerX, topGripY - gripH - 15);
-      ctx.lineTo(centerX, topGripY - gripH - 35);
-      ctx.stroke();
+      ctx.lineWidth = 2;
       
-      // Arrow head pointing up
+      // Up arrow at top
       ctx.beginPath();
-      ctx.moveTo(centerX, topGripY - gripH - 35);
-      ctx.lineTo(centerX - 6, topGripY - gripH - 25);
-      ctx.lineTo(centerX + 6, topGripY - gripH - 25);
+      ctx.moveTo(centerX, topGripY - 5);
+      ctx.lineTo(centerX, topGripY - 18);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(centerX, topGripY - 18);
+      ctx.lineTo(centerX - 5, topGripY - 12);
+      ctx.lineTo(centerX + 5, topGripY - 12);
       ctx.closePath();
       ctx.fillStyle = '#27ae60';
       ctx.fill();
       
-      ctx.font = '9px sans-serif';
-      ctx.fillStyle = '#27ae60';
-      ctx.fillText('F', centerX + 12, topGripY - gripH - 25);
+      // Down arrow at bottom
+      ctx.beginPath();
+      ctx.moveTo(centerX, bottomGripY + gripH + 5);
+      ctx.lineTo(centerX, bottomGripY + gripH + 18);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(centerX, bottomGripY + gripH + 18);
+      ctx.lineTo(centerX - 5, bottomGripY + gripH + 12);
+      ctx.lineTo(centerX + 5, bottomGripY + gripH + 12);
+      ctx.closePath();
+      ctx.fill();
     }
   }
 

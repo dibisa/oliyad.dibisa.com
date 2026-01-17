@@ -153,13 +153,13 @@
     const centerX = w * 0.5;
     
     // Bottom grip - FIXED at bottom
-    const bottomGripY = h * 0.85;
+    const bottomGripY = h * 0.75;
     ctx.fillStyle = '#444';
     ctx.fillRect(centerX - gripW/2, bottomGripY, gripW, gripH);
     
-    // Top grip - MOVES UP with strain
-    const topGripBaseY = h * 0.15;
-    const topGripY = topGripBaseY - strainFactor * h * 0.35;
+    // Top grip - MOVES UP with strain (limited movement to stay in frame)
+    const topGripBaseY = h * 0.25;
+    const topGripY = topGripBaseY - strainFactor * h * 0.12;
     ctx.fillStyle = '#444';
     ctx.fillRect(centerX - gripW/2, topGripY - gripH, gripW, gripH);
 

@@ -35,6 +35,8 @@ minima:
   # at the top-level `social_links` key (used by the footer include below).
 
 social_links:
+  - label: Google Scholar
+    url: "https://scholar.google.com/citations?hl=en&user=5M33W_gAAAAJ"
   - label: ResearchGate
     url: "https://www.researchgate.net/profile/Oliyad-Dibisa"
   - label: LinkedIn

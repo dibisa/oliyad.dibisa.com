@@ -4,57 +4,22 @@ layout: default
 
 <div class="home">
   <header style="margin: 1.5rem 0 1rem 0;">
-    <h1 style="margin-bottom: 0.25rem;">{{ site.title }}</h1>
     <p style="margin-top: 0; max-width: 70ch;">
       {{ site.description }}
     </p>
   </header>
-
-  {% include project-carousel.html %}
+  {% include hero-media.html %}
 
   <hr style="margin: 2rem 0;" />
 
   <h2>Selected Projects & Papers</h2>
 
-  <div class="projects-grid" style="display: grid; grid-template-columns: repeat(3, minmax(280px, 1fr)); gap: 1rem;">
-    {% for p in site.data.projects %}
-      {% assign idx = forloop.index0 %}
-      <div class="project-card" style="border: 1px solid #e5e5e5; border-radius: 12px; padding: 1rem;">
-        <a href="{{ p.paper_url }}" target="_blank" rel="noopener" style="text-decoration: none;">
-          <h3 style="margin-top: 0.25rem;">{{ p.title }}</h3>
-        </a>
+  {% include project-cards.html %}
 
-        <div class="project-media" id="project-media-{{ idx }}">
-          {% assign media_items = p.media %}
-          {% if media_items and media_items.size > 0 %}
-            {% assign first = media_items[0] %}
-            {% if first.type == 'video' %}
-              <video src="{{ first.src }}" controls style="width:100%; border-radius:12px;"></video>
-            {% else %}
-              <img src="{{ first.src }}" alt="{{ first.caption | default: p.title }}" style="width:100%; border-radius:12px;" />
-            {% endif %}
+  {% include sticky-footer.html %}
 
-            {% if media_items.size > 1 %}
-              <div class="project-media-controls" style="display:flex; gap:0.5rem; margin-top:0.5rem;">
-                <button class="p-prev" data-idx="{{ idx }}">◀</button>
-                <button class="p-next" data-idx="{{ idx }}">▶</button>
-              </div>
-            {% endif %}
-          {% else %}
-            <img src="{{ site.media_placeholder | default: '/assets/media/placeholder.svg' }}" alt="placeholder" style="width:100%; border-radius:12px;" />
-          {% endif %}
-        </div>
-
-        <p style="margin: 0.5rem 0;">{{ p.blurb }}</p>
-
-        <div style="font-size: 0.9rem; opacity: 0.9;">
-          {% for t in p.tags %}
-            <span style="display: inline-block; margin-right: 0.5rem;">#{{ t }}</span>
-          {% endfor %}
-        </div>
-      </div>
-    {% endfor %}
-  </div>
+  <script>window.SITE_PROJECTS = {{ site.data.projects | jsonify }};</script>
+  <script src="/assets/js/site.js"></script>
 </div>
 
 <script>

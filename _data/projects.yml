@@ -1,18 +1,46 @@
-- title: "Ammonia-free natural rubber latex photo-resin for sustainable 3D printing"
+# Example projects data. Update with your real projects.
+- id: "proj-1"
+  title: "Paper One: Rheology of Natural Rubber"
+  description: "Short description of Paper One, 1–2 sentences about the work and key result."
+  tags:
+    - rheology
+    - emulsions
+  paper_url: "https://example.com/paper-one"
   media:
-    - type: "video"
-      src: "/assets/media/ammonia-free-demo.mp4"
-      caption: "Demo video"
-    - type: "video"
-      src: "/assets/media/Movies3.mp4"
-      caption: "Extra demo (Movies3)"
+    - type: image
+      src: "/assets/media/sample1.jpg"
+      caption: "Microscopy image from Paper One"
+    - type: video
+      src: "/assets/media/sample1.mp4"
+      caption: "Short demo video for Paper One"
+
+- id: "proj-2"
+  title: "Paper Two: Photopolymerization"
+  description: "Short description of Paper Two, focusing on methods and impact."
+  tags:
+    - photopolymerization
+    - DOSY
+  paper_url: "https://example.com/paper-two"
+  media:
+    - type: image
+      src: "/assets/media/sample2.jpg"
+      caption: "Sample experimental setup"
+    - type: video
+      src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      caption: "YouTube demo (placeholder)"
+- title: "Ammonia-free natural rubber latex photo-resin for sustainable 3D printing"
+  id: "10.1002-pls2-70011"
+  media:
     - type: "image"
-      src: "/assets/img/IMG_6687.JPG"
-      caption: "Sample photo"
+      src: "/assets/media/10.1002-pls2.70011Figurepls270011fig0002--image1.jpeg"
+      caption: "Figure 0002"
     - type: "image"
-      src: "/assets/media/ammonia-free-thumb.jpg"
-      caption: "Thumbnail"
-  thumb: "/assets/media/ammonia-free-thumb.jpg"
+      src: "/assets/media/10.1002-pls2.70011Figurepls270011fig0007--image1.jpeg"
+      caption: "Figure 0007"
+    - type: "image"
+      src: "/assets/media/10.1002-pls2.70011Figurepls270011fig0008--image1.jpeg"
+      caption: "Figure 0008"
+  thumb: "/assets/media/10.1002-pls2.70011Figurepls270011fig0002--image1.jpeg"
   paper_url: "https://doi.org/10.1002/pls2.70011"
   extra_links:
     - label: "PDF"
@@ -21,20 +49,18 @@
   tags: ["photopolymerization", "NRL", "3D printing"]
 
 - title: "High-sensitivity NMR characterization of natural rubber latex end-groups"
+  id: "10.1002-pen-70041"
   media:
     - type: "image"
-      src: "/assets/media/nmr-figure.jpg"
-      caption: "NMR figure"
-    - type: "video"
-      src: "/assets/media/Movies3.mp4"
-      caption: "Supplemental video"
+      src: "/assets/media/10.1002-pen.70041Figurepen70041fig0001--image1.jpeg"
+      caption: "Figure 0001"
     - type: "image"
-      src: "/assets/img/IMG_6687.JPG"
-      caption: "Sample photo"
+      src: "/assets/media/10.1002-pen.70041Figurepen70041fig0007--image1.jpeg"
+      caption: "Figure 0007"
     - type: "image"
-      src: "/assets/media/nmr-figure.jpg"
-      caption: "NMR figure"
-  thumb: "/assets/media/nmr-figure.jpg"
+      src: "/assets/media/10.1002-pen.70041Figurepen70041fig0010--image1.jpeg"
+      caption: "Figure 0010"
+  thumb: "/assets/media/10.1002-pen.70041Figurepen70041fig0001--image1.jpeg"
   paper_url: "https://doi.org/10.1002/pen.70041"
   extra_links:
     - label: "Google Scholar"

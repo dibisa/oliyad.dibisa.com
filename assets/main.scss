@@ -8,6 +8,29 @@
   --footer-height-collapsed: 64px;
 }
 
+/* Hero media styles */
+.hero-media { border: 1px solid #eaeaea; border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+.hero-header { display:flex; justify-content:space-between; align-items:center; }
+.hero-wrap { display:flex; align-items:center; gap:0.5rem; }
+.hero-media-container { position:relative; width:100%; min-height:220px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.hero-media-container img, .hero-media-container video, .hero-media-container iframe { width:100%; height:auto; max-height:520px; border-radius: 12px; }
+.hero-nav { background:transparent; border:0; font-size:1.4rem; padding:0.5rem; cursor:pointer; }
+.hero-caption { margin-top:0.5rem; font-size:0.95rem; color:#333; opacity:0.9; }
+
+/* watermark overlay arrows */
+.hero-watermark-left, .hero-watermark-right { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.6); padding:0.4rem 0.6rem; border-radius:8px; cursor:pointer; font-weight:600; }
+.hero-watermark-left { left:8px; }
+.hero-watermark-right { right:8px; }
+
+/* Project card styling */
+.projects-grid { display:grid; gap:1rem; }
+.project-card { border:1px solid #eaeaea; border-radius:12px; padding:1rem; cursor:pointer; transition: box-shadow 160ms ease; }
+.project-card:hover, .project-card.project-active { box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.project-title { margin:0 0 0.25rem 0; }
+.project-desc { margin:0.25rem 0 0.75rem 0; color:#444; }
+.project-tags .tag { display:inline-block; margin-right:0.5rem; color:#666; font-size:0.9rem; }
+
+
 /* Ensure main content doesn't get hidden behind sticky footer; JS updates padding-bottom dynamically */
 .home {
   padding-bottom: var(--footer-height-expanded);

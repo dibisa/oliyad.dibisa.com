@@ -22,7 +22,7 @@ title: Oliyad Teferi Dibisa
 email: dibisa@wisc.edu
 description: PhD candidate (Mechanical Engineering). Natural rubber latex, rheology, photopolymerization, emulsions, colloids, Relaxometer, DOSY,  NMR and structure–process-property analysis.
 baseurl: ""
-url: "https://dibisa.github.io"
+url: "https://oliyaddibisa.com"
 
 theme: minima
 
@@ -49,7 +49,7 @@ media_placeholder: "/assets/media/placeholder.svg"
 signature_title: "PhD Candidate"
 signature_affiliation: "Department of Mechanical Engineering, University of Wisconsin–Madison"
 signature_location: "Madison, WI"
-signature_website: "https://dibisa.github.io"
+signature_website: "https://oliyaddibisa.com"
 phd_summary: "PhD candidate researching natural rubber latex, rheology, photopolymerization, emulsions, and structure–process–property analysis."
 
 

@@ -1,0 +1,46 @@
+<div class="sticky-footer" id="sticky-footer">
+  <div class="site-card-bar">
+    <div class="bar-left">
+      <img class="bar-avatar" src="{{ site.profile_image | default: '/assets/images/headshot.jpg' }}" alt="avatar" />
+      <div class="bar-identity">
+        <div class="bar-name">{{ site.title }}</div>
+        <div class="bar-email">{{ site.email }}</div>
+      </div>
+    </div>
+
+    <div class="bar-actions">
+      <button class="bar-toggle footer-toggle" aria-expanded="false"><span class="chev">▾</span></button>
+    </div>
+  </div>
+
+  <div class="site-card-content">
+    <div class="footer-inner">
+      <div class="col-photo footer-col">
+        <img class="footer-avatar" src="{{ site.profile_image | default: '/assets/images/headshot.jpg' }}" alt="photo" />
+      </div>
+
+      <div class="col-identity footer-col">
+        <div class="identity-name">{{ site.title }}</div>
+        <div class="identity-email">{{ site.email }}</div>
+        <div class="identity-signature">
+          <div class="sig-title">{{ site.signature_title }}</div>
+          <div class="sig-affil">{{ site.signature_affiliation }}</div>
+          <div class="sig-location">{{ site.signature_location }}</div>
+        </div>
+      </div>
+
+      <div class="col-social footer-col">
+        <strong>Profiles</strong>
+        <ul class="social-list">
+          {% for s in site.minima.social_links %}
+            <li><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col-summary footer-col footer-desc">
+        <p>{{ site.phd_summary }}</p>
+      </div>
+    </div>
+  </div>
+</div>

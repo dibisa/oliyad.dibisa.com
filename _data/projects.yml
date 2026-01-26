@@ -21,6 +21,9 @@
   tags: ["NMR", "structure-property", "latex", "characterization"]
   media:
     - type: "image"
+      src: "/assets/media/10.1002-pen.70041-workflow.jpeg"
+      alt: "Research workflow for NMR characterization"
+    - type: "image"
       src: "/assets/media/10.1002-pen.70041Figurepen70041fig0001--image1.jpeg"
       alt: "Figure 1: NMR relaxation analysis"
     - type: "image"
@@ -37,5 +40,11 @@
   tags: ["rheology", "modeling", "formulation"]
   media:
     - type: "image"
-      src: "/assets/media/placeholder-viscosity.jpg"
-      alt: "Viscosity prediction model"
+      src: "/assets/media/viscosity-simulation-density980.gif"
+      alt: "Simulation video: Density 980 kg/m³"
+    - type: "image"
+      src: "/assets/media/viscosity-simulation-density1100.gif"
+      alt: "Simulation video: Density 1100 kg/m³"
+    - type: "image"
+      src: "/assets/media/viscosity-model-fitted-data.png"
+      alt: "Viscosity prediction model with fitted data"

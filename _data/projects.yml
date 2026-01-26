@@ -1,9 +1,28 @@
+- id: "predicting-viscosity"
+  title: "Predicting the viscosity of latex based on the solid content, density and surface charges"
+  description: "Develops predictive models for natural rubber latex viscosity using key material parameters."
+  paper_url: "https://doi.org/10.1063/5.0255679"
+  tags: ["rheology", "modeling", "formulation"]
+  media:
+    - type: "image"
+      src: "/assets/media/viscosity-simulation-density980.gif"
+      alt: "Simulation video: Density 980 kg/m³"
+    - type: "image"
+      src: "/assets/media/viscosity-simulation-density1100.gif"
+      alt: "Simulation video: Density 1100 kg/m³"
+    - type: "image"
+      src: "/assets/media/viscosity-model-fitted-data.png"
+      alt: "Viscosity prediction model with fitted data"
+
 - id: "printing-900-elongation"
   title: "Printing natural rubber latex with 900% elongation"
   description: "Demonstrates 3D printing of high-elongation natural rubber latex with photopolymerization."
   paper_url: "https://doi.org/10.1002/pls2.70011"
   tags: ["3D printing", "photopolymerization", "NRL", "elastomers"]
   media:
+    - type: "image"
+      src: "/assets/media/10.1002-pen.70041-workflow.jpeg"
+      alt: "Research workflow for 3D printing NRL"
     - type: "image"
       src: "/assets/media/10.1002-pls2.70011Figurepls270011fig0002--image1.jpeg"
       alt: "Figure 2: Printed sample with 900% elongation"
@@ -21,9 +40,6 @@
   tags: ["NMR", "structure-property", "latex", "characterization"]
   media:
     - type: "image"
-      src: "/assets/media/10.1002-pen.70041-workflow.jpeg"
-      alt: "Research workflow for NMR characterization"
-    - type: "image"
       src: "/assets/media/10.1002-pen.70041Figurepen70041fig0001--image1.jpeg"
       alt: "Figure 1: NMR relaxation analysis"
     - type: "image"
@@ -32,19 +48,3 @@
     - type: "image"
       src: "/assets/media/10.1002-pen.70041Figurepen70041fig0010--image1.jpeg"
       alt: "Figure 10: Surface vs core analysis"
-
-- id: "predicting-viscosity"
-  title: "Predicting the viscosity of latex based on the solid content, density and surface charges"
-  description: "Develops predictive models for natural rubber latex viscosity using key material parameters."
-  paper_url: "https://doi.org/10.1063/5.0255679"
-  tags: ["rheology", "modeling", "formulation"]
-  media:
-    - type: "image"
-      src: "/assets/media/viscosity-simulation-density980.gif"
-      alt: "Simulation video: Density 980 kg/m³"
-    - type: "image"
-      src: "/assets/media/viscosity-simulation-density1100.gif"
-      alt: "Simulation video: Density 1100 kg/m³"
-    - type: "image"
-      src: "/assets/media/viscosity-model-fitted-data.png"
-      alt: "Viscosity prediction model with fitted data"

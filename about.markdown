@@ -4,14 +4,51 @@ title: About
 permalink: /about/
 ---
 
+<div class="about-header">
+  <img src="{{ site.profile_image }}" alt="Oliyad Dibisa" class="about-photo">
+  <div class="about-intro">
+    <h2>Hi — I'm Oliyad Dibisa</h2>
+    <p class="about-tagline">{{ site.tagline }}</p>
+    {% if site.availability_status %}
+    <div class="about-availability">
+      <span class="status-dot"></span>
+      {{ site.availability_status }}
+    </div>
+    {% endif %}
+  </div>
+</div>
 
-Hi — I'm Oliyad Dibisa, a PhD candidate in Mechanical Engineering.
+## Research Focus
 
-My work focuses on sustainable latex-based materials, rheology, and NMR structure–property analysis, with applications in UV-curable systems and additive manufacturing.
+I'm a PhD candidate in Mechanical Engineering at the University of Wisconsin–Madison, specializing in **soft matter physics** and **biopolymer manufacturing**. My research bridges the gap between theoretical modeling and scalable material processing.
 
-Outside the lab: soccer, photography, and ideas about where materials R&D are heading next.
+**Core Areas:**
+- **Rheology & Flow Modeling:** Developing CFD-based predictive models for colloidal systems
+- **Additive Manufacturing:** Pioneering photopolymerization techniques for natural rubber latex (achieving 900% elongation)
+- **NMR Characterization:** Using advanced spectroscopy (DOSY, relaxometry) to understand structure-property relationships
+- **Sustainable Materials:** Investigating eco-friendly latex formulations and processing
 
-**Connect with me**
+## Education
+
+**Ph.D. in Mechanical Engineering** (Expected {{ site.expected_graduation }})  
+University of Wisconsin–Madison  
+*Advisor: Prof. Tim Osswald*
+
+## What I'm Looking For
+
+I'm seeking **R&D positions** where I can apply computational modeling and experimental expertise to solve real-world manufacturing challenges. I'm particularly interested in:
+- Materials R&D (polymers, soft matter, biopolymers)
+- Process engineering and scale-up
+- Computational materials science
+- Postdoctoral research in applied polymer physics
+
+---
+
+## Beyond the Lab
+
+When I'm not in the lab, you'll find me on the soccer field, behind a camera, or thinking about where materials R&D is heading next.
+
+**Connect with me:**
 
 {% if site.social_links %}
 <ul class="social-links-list">
@@ -26,6 +63,61 @@ Outside the lab: soccer, photography, and ideas about where materials R&D are he
 {% include elastomer-demo.html %}
 
 <style>
+.about-header {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.about-intro {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-intro h2 {
+  margin: 0 0 0.5rem 0;
+}
+
+.about-tagline {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+}
+
+.about-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #e8f5e9;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #2e7d32;
+}
+
+.about-availability .status-dot {
+  width: 8px;
+  height: 8px;
+  background: #4caf50;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
 .social-links-list {
   list-style: none;
   padding-left: 0;
@@ -36,5 +128,17 @@ Outside the lab: soccer, photography, and ideas about where materials R&D are he
 }
 .social-links-list a {
   color: #0066cc;
+}
+
+@media (max-width: 600px) {
+  .about-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .about-photo {
+    width: 140px;
+    height: 140px;
+  }
 }
 </style>

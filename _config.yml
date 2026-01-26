@@ -20,7 +20,10 @@
 
 title: Oliyad Teferi Dibisa
 email: dibisa@wisc.edu
-description: PhD candidate (Mechanical Engineering). Natural rubber latex, rheology, photopolymerization, emulsions, colloids, Relaxometer, DOSY,  NMR and structure–process-property analysis.
+description: "Mechanical Engineer & Rheologist specializing in soft matter simulations and biopolymer manufacturing. Bridging theoretical modeling with scalable material processing for natural rubber latex systems."
+tagline: "Mechanical Engineer & Rheologist | Soft Matter · Biopolymers · Scalable Manufacturing"
+availability_status: "Open to R&D and Postdoc opportunities starting Summer 2026"
+expected_graduation: "Summer 2026"
 baseurl: ""
 url: "https://dibisa.github.io"
 
@@ -28,6 +31,7 @@ theme: minima
 
 header_pages:
   - about.markdown
+  - publications.markdown
   - CV.markdown
 
 minima:
@@ -52,7 +56,27 @@ signature_title: "PhD Candidate"
 signature_affiliation: "Department of Mechanical Engineering, University of Wisconsin–Madison"
 signature_location: "Madison, WI"
 signature_website: "https://oliyaddibisa.com"
-phd_summary: "PhD candidate researching natural rubber latex, rheology, photopolymerization, emulsions, and structure–process–property analysis."
+phd_summary: "Mechanical Engineer specializing in soft matter simulations, rheology, and scalable biopolymer manufacturing. Developing predictive models for natural rubber latex systems."
+
+# Skills for homepage skills section
+skills:
+  simulation:
+    - "COMSOL Multiphysics"
+    - "Python (NumPy, SciPy, Pandas)"
+    - "MATLAB"
+    - "CFD Modeling"
+    - "Finite Element Analysis"
+  experimental:
+    - "Rheology (Anton Paar, TA Instruments)"
+    - "NMR Spectroscopy (DOSY, Relaxometry)"
+    - "3D Printing (SLA/DLP)"
+    - "Photopolymerization"
+    - "UV-Curable Systems"
+  characterization:
+    - "Structure-Property Analysis"
+    - "Colloidal Systems"
+    - "Emulsion Science"
+    - "Material Formulation"
 
 
 # Exclude from processing.

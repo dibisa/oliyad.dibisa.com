@@ -1,0 +1,33 @@
+<section class="skills-section">
+  <h2>Technical Expertise</h2>
+  <div class="skills-grid">
+    
+    <div class="skill-category">
+      <h3><span class="skill-icon">💻</span> Simulation & Coding</h3>
+      <div class="skill-tags">
+        {% for skill in site.skills.simulation %}
+        <span class="skill-tag">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3><span class="skill-icon">🔬</span> Experimental Methods</h3>
+      <div class="skill-tags">
+        {% for skill in site.skills.experimental %}
+        <span class="skill-tag">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3><span class="skill-icon">📊</span> Characterization</h3>
+      <div class="skill-tags">
+        {% for skill in site.skills.characterization %}
+        <span class="skill-tag">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</section>

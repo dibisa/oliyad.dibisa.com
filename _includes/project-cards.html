@@ -4,7 +4,21 @@
     <a href="{{ project.paper_url }}" class="project-card-title" target="_blank" rel="noopener">
       {{ project.title }}
     </a>
+    
+    {% if project.tools %}
+    <div class="project-tools">
+      {% for tool in project.tools %}
+      <span class="tool-badge">{{ tool }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    
     <p class="project-card-description">{{ project.description }}</p>
+    
+    {% if project.impact %}
+    <p class="project-impact"><strong>Impact:</strong> {{ project.impact }}</p>
+    {% endif %}
+    
     <div class="project-tags">
       {% for tag in project.tags %}
       <span class="tag">#{{ tag }}</span>

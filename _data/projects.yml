@@ -1,7 +1,9 @@
 - id: "predicting-viscosity"
   title: "Predicting the viscosity of latex based on the solid content, density and surface charges"
-  description: "Develops predictive models for natural rubber latex viscosity using key material parameters."
+  description: "Natural rubber latex viscosity varies unpredictably due to solid content, density, and surface charge interactions. Developed a CFD-based predictive model using COMSOL Multiphysics and Python to simulate colloidal flow behavior."
+  impact: "Reduced formulation trial-and-error time and enabled accurate viscosity predictions for manufacturing scale-up."
   paper_url: "https://doi.org/10.1063/5.0255679"
+  tools: ["COMSOL", "Python", "CFD", "Rheometer"]
   tags: ["rheology", "modeling", "formulation"]
   media:
     - type: "image"
@@ -16,8 +18,10 @@
 
 - id: "printing-900-elongation"
   title: "Printing natural rubber latex with 900% elongation"
-  description: "Demonstrates 3D printing of high-elongation natural rubber latex with photopolymerization."
+  description: "Conventional 3D printing materials lack the elasticity needed for soft robotics and biomedical applications. Developed a photopolymerization-based process for printing natural rubber latex achieving 900% elongation."
+  impact: "Enabled additive manufacturing of ultra-high-elongation elastomers, opening new applications in soft robotics and flexible electronics."
   paper_url: "https://doi.org/10.1002/pls2.70011"
+  tools: ["SLA/DLP 3D Printing", "UV Curing", "Rheometer", "Tensile Testing"]
   tags: ["3D printing", "photopolymerization", "NRL", "elastomers"]
   media:
     - type: "image"
@@ -35,8 +39,10 @@
 
 - id: "measuring-diffusion"
   title: "Measuring the Diffusion coefficient and nuclear spin relaxation of surface and core of natural rubber latex"
-  description: "Characterizes diffusion and NMR relaxation properties of natural rubber latex particles."
+  description: "Understanding the internal structure of latex particles is critical for optimizing processing. Used advanced NMR techniques (DOSY, relaxometry) to characterize diffusion and relaxation behavior of particle surfaces vs. cores."
+  impact: "Revealed structure-property relationships enabling better control of latex formulation and processing parameters."
   paper_url: "https://doi.org/10.1002/pen.70041"
+  tools: ["NMR (DOSY)", "Relaxometry", "Python", "MATLAB"]
   tags: ["NMR", "structure-property", "latex", "characterization"]
   media:
     - type: "image"

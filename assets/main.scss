@@ -614,3 +614,213 @@ body {
     gap: 0.5rem;
   }
 }
+
+/* ===== Hero Section ===== */
+.hero-section {
+  margin: 1rem 0 2rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 16px;
+}
+
+.hero-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-name {
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem 0;
+  color: #1a1a1a;
+}
+
+.hero-tagline {
+  font-size: 1.1rem;
+  color: #007bff;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+.hero-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  max-width: 60ch;
+}
+
+.hero-photo {
+  flex-shrink: 0;
+}
+
+.hero-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.availability-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: #e8f5e9;
+  border-radius: 24px;
+  font-size: 0.9rem;
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.availability-banner .status-dot {
+  width: 10px;
+  height: 10px;
+  background: #4caf50;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.9); }
+}
+
+/* ===== Skills Section ===== */
+.skills-section {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+}
+
+.skills-section h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.5rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-category {
+  padding: 1.25rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.skill-category h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-icon {
+  font-size: 1.2rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #444;
+  transition: all 0.2s;
+}
+
+.skill-tag:hover {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+/* ===== Tool Badges (Project Cards) ===== */
+.project-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0;
+}
+
+.tool-badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background: #e3f2fd;
+  color: #1565c0;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.project-impact {
+  font-size: 0.9rem;
+  color: #2e7d32;
+  background: #f1f8e9;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  margin: 0.75rem 0;
+  border-left: 3px solid #4caf50;
+}
+
+/* ===== Responsive Hero ===== */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  
+  .hero-text {
+    min-width: 100%;
+  }
+  
+  .hero-name {
+    font-size: 1.8rem;
+  }
+  
+  .hero-avatar {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .availability-banner {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 1.25rem;
+    margin: 0.5rem 0 1.5rem 0;
+  }
+  
+  .hero-name {
+    font-size: 1.5rem;
+  }
+  
+  .hero-tagline {
+    font-size: 0.95rem;
+  }
+  
+  .skills-section {
+    padding: 1.25rem;
+  }
+}

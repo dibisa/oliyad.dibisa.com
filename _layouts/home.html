@@ -3,13 +3,30 @@ layout: default
 ---
 
 <div class="home">
-  <header style="margin: 1.5rem 0 1rem 0;">
-    <p style="margin-top: 0; max-width: 70ch;">
-      {{ site.description }}
-    </p>
-  </header>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-name">{{ site.title }}</h1>
+        <p class="hero-tagline">{{ site.tagline }}</p>
+        <p class="hero-description">{{ site.description }}</p>
+        {% if site.availability_status %}
+        <div class="availability-banner">
+          <span class="status-dot"></span>
+          {{ site.availability_status }}
+        </div>
+        {% endif %}
+      </div>
+      <div class="hero-photo">
+        <img src="{{ site.profile_image }}" alt="{{ site.title }}" class="hero-avatar">
+      </div>
+    </div>
+  </section>
 
   {% include project-carousel.html %}
+
+  <!-- Skills Section -->
+  {% include skills-section.html %}
 
   <h2>Selected Projects & Papers</h2>
 

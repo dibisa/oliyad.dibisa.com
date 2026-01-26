@@ -11,9 +11,19 @@ body {
   padding-bottom: var(--footer-h);
 }
 
+/* ===== Consistent Container Width ===== */
+.hero-section,
+.carousel-container,
+.skills-section,
+.projects-wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ===== Carousel / Media Viewer ===== */
 .carousel-container {
-  margin: 2rem 0;
+  margin: 2rem auto;
   padding: 2rem;
   background: #f9f9f9;
   border-radius: 8px;
@@ -40,17 +50,50 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   margin: 2rem 0;
 }
 
 .media-viewer {
-  flex: 1;
-  max-width: 600px;
+  flex: 0 0 auto;
+  width: 55%;
+  max-width: 650px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Adjacent slide previews (before/after) */
+.adjacent-preview {
+  flex: 0 0 auto;
+  width: 15%;
+  max-width: 180px;
   background: #fff;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  opacity: 0.5;
+  filter: brightness(0.7);
+  transform: scale(0.85);
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+  z-index: 1;
+}
+
+.adjacent-preview:hover {
+  opacity: 0.7;
+  filter: brightness(0.8);
+  transform: scale(0.9);
+  cursor: pointer;
+}
+
+.adjacent-preview img,
+.adjacent-preview video {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .media-viewer img,
@@ -346,6 +389,12 @@ body {
 
   .media-viewer {
     max-width: 100%;
+    width: 100%;
+  }
+
+  /* Hide adjacent previews on tablet/mobile */
+  .adjacent-preview {
+    display: none;
   }
 
   .carousel-container {

@@ -18,7 +18,7 @@
 
 - id: "printing-900-elongation"
   title: "Printing natural rubber latex with 900% elongation"
-  description: "Conventional 3D printing materials lack the elasticity needed for soft robotics and biomedical applications. Developed a photopolymerization-based process for printing natural rubber latex achieving 900% elongation."
+  description: "Conventional 3D printing materials lack the elasticity needed for soft robotics and biomedical applications. I developed a photopolymerization-based process for printing natural rubber latex achieving 900% elongation."
   impact: "Enabled additive manufacturing of ultra-high-elongation elastomers, opening new applications in soft robotics and flexible electronics."
   paper_url: "https://doi.org/10.1002/pls2.70011"
   tools: ["SLA/DLP 3D Printing", "UV Curing", "Rheometer", "Tensile Testing"]
@@ -39,7 +39,7 @@
 
 - id: "measuring-diffusion"
   title: "Measuring the Diffusion coefficient and nuclear spin relaxation of surface and core of natural rubber latex"
-  description: "Understanding the internal structure of latex particles is critical for optimizing processing. Used advanced NMR techniques (DOSY, relaxometry) to characterize diffusion and relaxation behavior of particle surfaces vs. cores."
+  description: "Understanding the internal structure of latex particles is critical for optimizing processing. I used advanced NMR techniques (DOSY, relaxometry) to characterize diffusion and relaxation behavior of particle surfaces vs. cores."
   impact: "Revealed structure-property relationships enabling better control of latex formulation and processing parameters."
   paper_url: "https://doi.org/10.1002/pen.70041"
   tools: ["NMR (DOSY)", "Relaxometry", "Python", "MATLAB"]

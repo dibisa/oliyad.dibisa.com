@@ -7,7 +7,7 @@ permalink: /about/
 <div class="about-header">
   <img src="{{ site.profile_image }}" alt="Oliyad Dibisa" class="about-photo">
   <div class="about-intro">
-    <h2>Hey, I'm Oliyad Dibisa</h2>
+    <h2>Hello, I'm Oliyad Dibisa</h2>
     <p class="about-tagline">{{ site.tagline }}</p>
     {% if site.availability_status %}
     <div class="about-availability">

@@ -5,24 +5,14 @@
     <p id="carousel-description"></p>
   </div>
 
-  <!-- Media viewer with project navigation and adjacent previews -->
+  <!-- Media viewer with project navigation (big watermark arrows) -->
   <div class="media-viewer-wrapper">
     <button class="carousel-nav carousel-nav-prev" id="project-prev" aria-label="Previous project">
       <span class="watermark-arrow">‹</span>
     </button>
     
-    <!-- Previous project preview (dimmed) -->
-    <div class="adjacent-preview" id="prev-preview" aria-label="Previous project preview">
-      <!-- Rendered by JS -->
-    </div>
-    
     <div class="media-viewer" id="media-viewer">
       <!-- Media item rendered here by JS -->
-    </div>
-
-    <!-- Next project preview (dimmed) -->
-    <div class="adjacent-preview" id="next-preview" aria-label="Next project preview">
-      <!-- Rendered by JS -->
     </div>
 
     <button class="carousel-nav carousel-nav-next" id="project-next" aria-label="Next project">
@@ -58,7 +48,7 @@
       document.getElementById('carousel-title').textContent = project.title;
       document.getElementById('carousel-description').textContent = project.description;
 
-      // Render main media item
+      // Render media item
       const viewer = document.getElementById('media-viewer');
       viewer.innerHTML = '';
       if (media.type === 'image') {
@@ -77,9 +67,6 @@
         viewer.appendChild(video);
       }
 
-      // Render adjacent previews
-      renderAdjacentPreviews();
-
       // Update counter
       document.getElementById('media-counter').textContent = 
         `${currentMediaIdx + 1} / ${project.media.length}`;
@@ -87,58 +74,6 @@
       // Update button states
       document.getElementById('media-prev').disabled = currentMediaIdx === 0;
       document.getElementById('media-next').disabled = currentMediaIdx === project.media.length - 1;
-    }
-
-    function renderAdjacentPreviews() {
-      // Previous project preview
-      const prevIdx = (currentProjectIdx - 1 + projects.length) % projects.length;
-      const prevProject = projects[prevIdx];
-      const prevPreview = document.getElementById('prev-preview');
-      prevPreview.innerHTML = '';
-      if (prevProject.media && prevProject.media.length > 0) {
-        const prevMedia = prevProject.media[0];
-        if (prevMedia.type === 'image') {
-          const img = document.createElement('img');
-          img.src = prevMedia.src;
-          img.alt = prevProject.title;
-          prevPreview.appendChild(img);
-        } else if (prevMedia.type === 'video') {
-          const video = document.createElement('video');
-          video.src = prevMedia.src;
-          video.muted = true;
-          prevPreview.appendChild(video);
-        }
-      }
-      prevPreview.onclick = function() {
-        currentProjectIdx = prevIdx;
-        currentMediaIdx = 0;
-        renderMedia();
-      };
-
-      // Next project preview
-      const nextIdx = (currentProjectIdx + 1) % projects.length;
-      const nextProject = projects[nextIdx];
-      const nextPreview = document.getElementById('next-preview');
-      nextPreview.innerHTML = '';
-      if (nextProject.media && nextProject.media.length > 0) {
-        const nextMedia = nextProject.media[0];
-        if (nextMedia.type === 'image') {
-          const img = document.createElement('img');
-          img.src = nextMedia.src;
-          img.alt = nextProject.title;
-          nextPreview.appendChild(img);
-        } else if (nextMedia.type === 'video') {
-          const video = document.createElement('video');
-          video.src = nextMedia.src;
-          video.muted = true;
-          nextPreview.appendChild(video);
-        }
-      }
-      nextPreview.onclick = function() {
-        currentProjectIdx = nextIdx;
-        currentMediaIdx = 0;
-        renderMedia();
-      };
     }
 
     // Project navigation

@@ -68,19 +68,21 @@ skills:
     - "R"
     - "EES"
   experimental:
-    - "Rheometry (Netzsch, TA Instruments)"
     - "Injection Molding"
     - "Extrusion (Single & Twin-Screw)"
     - "SLA 3D Printing"
     - "Thermoforming"
     - "Material Formulation"
+    - "Emulsion Synthesis"
   characterization:
+    - "Rheometry (Netzsch, TA Instruments)"
     - "Solution-State NMR (2D)"
     - "Time-Domain NMR (DOSY, Relaxometry)"
     - "DSC / TGA / MFI"
     - "Mechanical Testing (Transient/Dynamic)"
     - "UV-Vis Spectrometry"
     - "Dynamic Light Scattering (DLS)"
+    - "SEM"
 
 
 # Exclude from processing.

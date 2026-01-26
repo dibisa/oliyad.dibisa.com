@@ -54,7 +54,7 @@ permalink: /publications/
 
 * **Kudos / AIP Author Perspective:** "How Different Preservatives Change the Flow and Structure of Natural Rubber Latex" (March 2025). Featured interview discussing the mechanism of ammonia-free stabilization and its industrial implications. [Read Interview](https://www.growkudos.com/publications/10.1063%25252F5.0255679/reader)
 
-* **Rubber News:** Osswald, T. A., & Rodríguez, J. C. (2025, April 14). "Green ammonia-free preservation and stabilization of natural rubber liquid latex." *Rubber News*, 18. *(Features research by Oliyad Dibisa on sustainable latex stabilization)*
+* **Rubber News:** Osswald, T. A., & Rodríguez, J. C. (2025, April 14). "Green ammonia-free preservation and stabilization of natural rubber liquid latex." *Rubber News*, 18. *(Features research by Oliyad Dibisa on sustainable latex stabilization)* [Read Article](https://www.rubbernews.com/technical-notebooks/green-ammonia-free-preservation-and-stabilization-natural-rubber-liquid-latex/)
 
 * **Scilight (AIP Publishing):** "Evaluating performance of traditional and eco-friendly latex preservatives" by Avery Thompson (2025). [Read Article](https://doi.org/10.1063/10.0036338)
 

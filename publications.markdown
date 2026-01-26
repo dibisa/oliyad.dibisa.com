@@ -42,7 +42,17 @@ permalink: /publications/
 
 ---
 
-## Selected Media Coverage
+## Editorials & Special Collections
+
+* **Physics of Fluids:** Estela-García, J. E., Hohoff, P., & Osswald, T. A. (2025). R. B. Bird International Polymer Colloquium special collection [Editorial]. *Physics of Fluids*, 37(9), 090401. [DOI: 10.1063/5.0288707](https://doi.org/10.1063/5.0288707) *(Highlights O. Dibisa's contributions to polymer rheology)*
+
+---
+
+## Research Impact & Media Features
+
+* **Research Outreach (Issue 138):** "Environmentally friendly ammonia-free preservation and stabilisation of natural rubber liquid latex" (October 26, 2023). Showcased sustainable adhesive platform to a global scientific audience. [Read Article](https://researchoutreach.org/articles/earth-environment/environmentally-friendly-ammonia-free-preservation-and-stabilisation-of-natural-rubber-liquid-latex/)
+
+* **Kudos / AIP Author Perspective:** "How Different Preservatives Change the Flow and Structure of Natural Rubber Latex" (March 2025). Featured interview discussing the mechanism of ammonia-free stabilization and its industrial implications. [Read Interview](https://www.growkudos.com/publications/10.1063%25252F5.0255679/reader)
 
 * **Rubber News:** Osswald, T. A., & Rodríguez, J. C. (2025, April 14). "Green ammonia-free preservation and stabilization of natural rubber liquid latex." *Rubber News*, 18. *(Features research by Oliyad Dibisa on sustainable latex stabilization)*
 

@@ -1,6 +1,6 @@
 - id: "predicting-viscosity"
   title: "Predicting the viscosity of latex based on the solid content, density and surface charges"
-  description: "Natural rubber latex viscosity varies unpredictably due to solid content, density, and surface charge interactions. Developed a CFD-based predictive model using COMSOL Multiphysics and Python to simulate colloidal flow behavior."
+  description: "Natural rubber latex viscosity varies unpredictably due to solid content, density, and surface charge interactions. I developed a CFD-based predictive model using COMSOL Multiphysics and Python to simulate colloidal flow behavior."
   impact: "Reduced formulation trial-and-error time and enabled accurate viscosity predictions for manufacturing scale-up."
   paper_url: "https://doi.org/10.1063/5.0255679"
   tools: ["COMSOL", "Python", "CFD", "Rheometer"]

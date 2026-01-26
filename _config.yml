@@ -60,7 +60,7 @@ phd_summary: "Polymer Scientist specializing in soft matter simulations, rheolog
 
 # Skills for homepage skills section
 skills:
-  Computer Skills:
+  simulation:
     - "COMSOL Multiphysics"
     - "Moldex3D"
     - "Digimat Structural Simulations"
@@ -68,16 +68,16 @@ skills:
     - "R"
     - "EES"
     - "MATLAB"
-    - "VS Code as the Main Editor for Vibe Coding"
-    - "Git / GitHub"  
-  Experimental:
+    - "VS Code"
+    - "Git / GitHub"
+  experimental:
     - "Injection Molding"
     - "Extrusion (Single & Twin-Screw)"
     - "SLA 3D Printing"
     - "Thermoforming"
     - "Material Formulation"
     - "Emulsion Synthesis"
-  Characterization:
+  characterization:
     - "Rheometry (Netzsch, TA Instruments)"
     - "Solution-State NMR (2D)"
     - "Time-Domain NMR (DOSY, Relaxometry)"

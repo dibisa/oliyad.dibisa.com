@@ -22,8 +22,8 @@ title: Oliyad Teferi Dibisa
 email: dibisa@wisc.edu
 description: "Polymer Scientist and Rheologist specializing in soft matter simulations and biopolymer manufacturing. Bridging theoretical modeling with scalable material processing for natural rubber latex systems."
 tagline: "Polymer Scientist & Rheologist | Soft Matter · Biopolymers · Scalable Manufacturing"
-availability_status: "Open to R&D and Postdoc opportunities starting Summer 2026"
-expected_graduation: "December 2025"
+availability_status: "Open to R&D opportunities starting May 2026"
+expected_graduation: "May 2026"
 baseurl: ""
 url: "https://dibisa.github.io"
 
@@ -50,7 +50,7 @@ social_links:
   - label: Instagram
     url: "https://www.instagram.com/yadoyoda_"
 
-profile_image: "/assets/img/IMG_6687.JPG"
+profile_image: "/assets/img/professional.JPG"
 media_placeholder: "/assets/media/placeholder.svg"
 signature_title: "PhD Candidate"
 signature_affiliation: "Department of Mechanical Engineering, University of Wisconsin–Madison"
@@ -60,21 +60,24 @@ phd_summary: "Polymer Scientist specializing in soft matter simulations, rheolog
 
 # Skills for homepage skills section
 skills:
-  simulation:
+  Computer Skills:
     - "COMSOL Multiphysics"
     - "Moldex3D"
     - "Digimat Structural Simulations"
     - "Python"
     - "R"
     - "EES"
-  experimental:
+    - "MATLAB"
+    - "VS Code as the Main Editor for Vibe Coding"
+    - "Git / GitHub"  
+  Experimental:
     - "Injection Molding"
     - "Extrusion (Single & Twin-Screw)"
     - "SLA 3D Printing"
     - "Thermoforming"
     - "Material Formulation"
     - "Emulsion Synthesis"
-  characterization:
+  Characterization:
     - "Rheometry (Netzsch, TA Instruments)"
     - "Solution-State NMR (2D)"
     - "Time-Domain NMR (DOSY, Relaxometry)"

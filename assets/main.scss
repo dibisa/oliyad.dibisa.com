@@ -696,10 +696,6 @@ body {
 /* ===== Skills Section ===== */
 .skills-section {
   margin: 2rem 0;
-  padding: 2rem;
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
 }
 
 .skills-section h2 {
@@ -709,14 +705,22 @@ body {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
   gap: 1.5rem;
+  margin: 0;
 }
 
 .skill-category {
-  padding: 1.25rem;
-  background: #f8f9fa;
-  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s;
+}
+
+.skill-category:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .skill-category h3 {

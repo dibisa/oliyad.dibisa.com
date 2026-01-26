@@ -24,13 +24,13 @@ I'm a PhD candidate in Mechanical Engineering at the University of Wisconsin–M
 
 **Core Areas:**
 - **Rheology & Flow Modeling:** Developing CFD-based predictive models for colloidal systems
-- **Additive Manufacturing:** Pioneering photopolymerization techniques for natural rubber latex (achieving 900% elongation)
+- **Additive Manufacturing:** Pioneering photopolymerization techniques for natural rubber latex (achieving beyond 900% elongation)
 - **NMR Characterization:** Using advanced spectroscopy (DOSY, relaxometry) to understand structure-property relationships
 - **Sustainable Materials:** Investigating eco-friendly latex formulations and processing
 
 ## Education
 
-**Ph.D. in Mechanical Engineering** (August 2021 – December 2025)  
+**Ph.D. in Mechanical Engineering** (August 2021 – May 2026)  
 University of Wisconsin–Madison  
 *Advisors: Prof. Tim A. Osswald and Prof. Xiao Kuang*  
 *Research: Structure–Property Relationships in Natural Rubber Latex (NRL) for Photolatex and Adhesives*

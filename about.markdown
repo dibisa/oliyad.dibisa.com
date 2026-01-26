@@ -7,7 +7,7 @@ permalink: /about/
 <div class="about-header">
   <img src="{{ site.profile_image }}" alt="Oliyad Dibisa" class="about-photo">
   <div class="about-intro">
-    <h2>Hi — I'm Oliyad Dibisa</h2>
+    <h2>Hey, I'm Oliyad Dibisa</h2>
     <p class="about-tagline">{{ site.tagline }}</p>
     {% if site.availability_status %}
     <div class="about-availability">
@@ -20,7 +20,7 @@ permalink: /about/
 
 ## Research Focus
 
-I'm a PhD candidate in Mechanical Engineering at the University of Wisconsin–Madison, specializing in **soft matter physics** and **biopolymer manufacturing**. My research bridges the gap between theoretical modeling and scalable material processing.
+I'm a PhD candidate in Mechanical Engineering at the University of Wisconsin–Madison. My training is in soft matter physics and biopolymer manufacturing, and my research bridges the gap between theoretical modeling and scalable material processing.
 
 **Core Areas:**
 - **Rheology & Flow Modeling:** Developing CFD-based predictive models for colloidal systems
@@ -30,13 +30,20 @@ I'm a PhD candidate in Mechanical Engineering at the University of Wisconsin–M
 
 ## Education
 
-**Ph.D. in Mechanical Engineering** (Expected {{ site.expected_graduation }})  
+**Ph.D. in Mechanical Engineering** (August 2021 – December 2025)  
 University of Wisconsin–Madison  
-*Advisor: Prof. Tim Osswald*
+*Advisors: Prof. Tim A. Osswald and Prof. Xiao Kuang*  
+*Research: Structure–Property Relationships in Natural Rubber Latex (NRL) for Photolatex and Adhesives*
+
+**M.S. in Mechanical Engineering** (August 2022)  
+University of Wisconsin–Madison
+
+**B.S. in Chemistry** (June 2021)  
+Pacific Union College, Angwin, CA
 
 ## What I'm Looking For
 
-I'm seeking **R&D positions** where I can apply computational modeling and experimental expertise to solve real-world manufacturing challenges. I'm particularly interested in:
+I'm seeking R&D positions where I can apply computational modeling and experimental expertise to solve real-world manufacturing challenges. I'm particularly interested in:
 - Materials R&D (polymers, soft matter, biopolymers)
 - Process engineering and scale-up
 - Computational materials science

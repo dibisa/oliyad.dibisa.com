@@ -20,10 +20,10 @@
 
 title: Oliyad Teferi Dibisa
 email: dibisa@wisc.edu
-description: "Mechanical Engineer & Rheologist specializing in soft matter simulations and biopolymer manufacturing. Bridging theoretical modeling with scalable material processing for natural rubber latex systems."
-tagline: "Mechanical Engineer & Rheologist | Soft Matter · Biopolymers · Scalable Manufacturing"
+description: "Polymer Scientist and Rheologist specializing in soft matter simulations and biopolymer manufacturing. Bridging theoretical modeling with scalable material processing for natural rubber latex systems."
+tagline: "Polymer Scientist & Rheologist | Soft Matter · Biopolymers · Scalable Manufacturing"
 availability_status: "Open to R&D and Postdoc opportunities starting Summer 2026"
-expected_graduation: "Summer 2026"
+expected_graduation: "December 2025"
 baseurl: ""
 url: "https://dibisa.github.io"
 
@@ -56,27 +56,31 @@ signature_title: "PhD Candidate"
 signature_affiliation: "Department of Mechanical Engineering, University of Wisconsin–Madison"
 signature_location: "Madison, WI"
 signature_website: "https://oliyaddibisa.com"
-phd_summary: "Mechanical Engineer specializing in soft matter simulations, rheology, and scalable biopolymer manufacturing. Developing predictive models for natural rubber latex systems."
+phd_summary: "Polymer Scientist specializing in soft matter simulations, rheology, and scalable biopolymer manufacturing. Developing predictive models for natural rubber latex systems."
 
 # Skills for homepage skills section
 skills:
   simulation:
     - "COMSOL Multiphysics"
-    - "Python (NumPy, SciPy, Pandas)"
-    - "MATLAB"
-    - "CFD Modeling"
-    - "Finite Element Analysis"
+    - "Moldex3D"
+    - "Digimat Structural Simulations"
+    - "Python"
+    - "R"
+    - "EES"
   experimental:
-    - "Rheology (Anton Paar, TA Instruments)"
-    - "NMR Spectroscopy (DOSY, Relaxometry)"
-    - "3D Printing (SLA/DLP)"
-    - "Photopolymerization"
-    - "UV-Curable Systems"
-  characterization:
-    - "Structure-Property Analysis"
-    - "Colloidal Systems"
-    - "Emulsion Science"
+    - "Rheometry (Netzsch, TA Instruments)"
+    - "Injection Molding"
+    - "Extrusion (Single & Twin-Screw)"
+    - "SLA 3D Printing"
+    - "Thermoforming"
     - "Material Formulation"
+  characterization:
+    - "Solution-State NMR (2D)"
+    - "Time-Domain NMR (DOSY, Relaxometry)"
+    - "DSC / TGA / MFI"
+    - "Mechanical Testing (Transient/Dynamic)"
+    - "UV-Vis Spectrometry"
+    - "Dynamic Light Scattering (DLS)"
 
 
 # Exclude from processing.

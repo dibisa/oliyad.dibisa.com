@@ -24,19 +24,22 @@
 
       <div class="footer-col col-identity">
         <p class="footer-name"><strong>{{ site.title }}</strong></p>
-        <p class="footer-email">{{ site.email }}</p>
         {% if site.signature_title %}
           <p class="sig-title">{{ site.signature_title }}</p>
+        {% endif %}
+        {% if site.signature_role %}
+          <p class="sig-role">{{ site.signature_role }}</p>
         {% endif %}
         {% if site.signature_affiliation %}
           <p class="sig-aff">{{ site.signature_affiliation }}</p>
         {% endif %}
-        {% if site.signature_location %}
-          <p class="sig-loc">{{ site.signature_location }}</p>
+        {% if site.signature_address %}
+          <p class="sig-address">{{ site.signature_address }}</p>
         {% endif %}
         {% if site.signature_website %}
-          <p class="sig-site"><a href="{{ site.signature_website }}" target="_blank" rel="noopener">{{ site.signature_website }}</a></p>
+          <p class="sig-site"><strong>Website:</strong> <a href="{{ site.signature_website }}" target="_blank" rel="noopener">{{ site.signature_website }}</a></p>
         {% endif %}
+        <p class="footer-email"><strong>Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
       </div>
 
       <div class="footer-col col-social">

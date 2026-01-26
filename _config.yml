@@ -52,10 +52,11 @@ social_links:
 
 profile_image: "/assets/img/professional.JPG"
 media_placeholder: "/assets/media/placeholder.svg"
-signature_title: "PhD Candidate"
-signature_affiliation: "Department of Mechanical Engineering, University of Wisconsin–Madison"
-signature_location: "Madison, WI"
-signature_website: "https://oliyaddibisa.com"
+signature_title: "Ph.D. Student, Mechanical Engineering"
+signature_role: "Graduate Research Assistant, ME 1065"
+signature_affiliation: "Polymer Engineering Center | University of Wisconsin-Madison"
+signature_address: "1065 Mechanical Engineering Building | 1513 University Avenue, Madison, WI 53706"
+signature_website: "https://dibisa.github.io/"
 phd_summary: "Polymer Scientist specializing in soft matter simulations, rheology, and scalable biopolymer manufacturing. Developing predictive models for natural rubber latex systems."
 
 # Skills for homepage skills section

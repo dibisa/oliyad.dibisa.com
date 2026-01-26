@@ -36,7 +36,15 @@ permalink: /publications/
 
 ---
 
+## Invited Talks
+
+**1.** **Dibisa, O.** (2025). "Structure–Property Relationships in Natural Rubber Latex (NRL) and Additive Manufacturing Applications." *TechnoBiz Rubber Tech-Talk 2025*, August 5, 2025. Hosted by TechnoBiz Rubber Network (Global). [View Event Page](https://www.technobiz.org/)
+
+---
+
 ## Selected Media Coverage
+
+* **Rubber News:** Osswald, T. A., & Rodríguez, J. C. (2025, April 14). "Green ammonia-free preservation and stabilization of natural rubber liquid latex." *Rubber News*, 18. *(Features research by Oliyad Dibisa on sustainable latex stabilization)*
 
 * **Scilight (AIP Publishing):** "Evaluating performance of traditional and eco-friendly latex preservatives" by Avery Thompson (2025). [Read Article](https://doi.org/10.1063/10.0036338)
 

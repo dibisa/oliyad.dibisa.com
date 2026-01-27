@@ -6,7 +6,7 @@ permalink: /cv/
 
 <div class="cv-header">
   <div class="cv-actions">
-    <a href="/assets/docs/O.Dibisa_resume.pdf" class="cv-download-btn primary" download>
+    <a href="/assets/docs/Oliyad.Dibisa_resume.pdf" class="cv-download-btn primary" download>
       📄 Download CV (PDF)
     </a>
   </div>
@@ -15,7 +15,7 @@ permalink: /cv/
 
 <div class="cv-embed-wrapper">
 <iframe
-  src="/assets/docs/O.Dibisa_resume.pdf"
+  src="/assets/docs/Oliyad.Dibisa_resume.pdf"
   width="100%"
   height="900"
   style="border:1px solid #e5e5e5; border-radius:12px;"

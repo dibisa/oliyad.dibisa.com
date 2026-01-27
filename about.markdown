@@ -20,13 +20,13 @@ permalink: /about/
 
 ## Research Focus
 
-I'm a PhD candidate in Mechanical Engineering at the University of Wisconsin–Madison. My training is in soft matter physics and biopolymer manufacturing, and my research bridges the gap between theoretical modeling and scalable material processing.
+I'm a PhD candidate in Mechanical Engineering at the University of Wisconsin–Madison. My expertise is in polymer characterization and the formulation of UV-curable biopolymers and emulsions. I focus on establishing structure-process-property relationships to translate experimental insights into scalable, high-performance products.
 
 **Core Areas:**
-- **Rheology & Flow Modeling:** Developing CFD-based predictive models for colloidal systems
-- **Additive Manufacturing:** Pioneering photopolymerization techniques for natural rubber latex (achieving beyond 900% elongation)
-- **NMR Characterization:** Using advanced spectroscopy (DOSY, relaxometry) to understand structure-property relationships
-- **Sustainable Materials:** Investigating eco-friendly latex formulations and processing
+- **Polymer Characterization:** Using rheometry and NMR spectroscopy (DOSY, relaxometry) to establish structure-property relationships
+- **UV-Curable Formulations:** Developing photopolymerization-based processes for natural rubber latex (achieving 900%+ elongation)
+- **Emulsion & Latex Processing:** Formulating ammonia-free adhesives and eco-friendly latex systems
+- **Process Scale-Up:** Applying rheological models and process simulation to optimize manufacturing
 
 ## Education
 
@@ -43,11 +43,11 @@ Pacific Union College, Angwin, CA
 
 ## What I'm Looking For
 
-I'm seeking R&D positions where I can apply computational modeling and experimental expertise to solve real-world manufacturing challenges. I'm particularly interested in:
-- Materials R&D (polymers, soft matter, biopolymers)
+I'm seeking R&D positions where I can apply polymer characterization and formulation expertise to solve real-world manufacturing challenges. I'm particularly interested in:
+- Experimental materials R&D (polymers, coatings, adhesives, emulsions)
+- UV-curable and latex formulation development
 - Process engineering and scale-up
-- Computational materials science
-- Postdoctoral research in applied polymer physics
+- Structure-process-property relationship studies
 
 ---
 

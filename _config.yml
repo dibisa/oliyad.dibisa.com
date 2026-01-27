@@ -20,8 +20,8 @@
 
 title: Oliyad Teferi Dibisa
 email: dibisa@wisc.edu
-description: "Polymer Scientist and Rheologist specializing in soft matter simulations and biopolymer manufacturing. Bridging theoretical modeling with scalable material processing for natural rubber latex systems."
-tagline: "Polymer Scientist & Rheologist | Soft Matter · Biopolymers · Scalable Manufacturing"
+description: "Polymer scientist with experience in the formulation of UV-curable biopolymers and emulsions. Expert in establishing structure-process-property relationships using rheometry, NMR spectroscopy, and advanced characterization. Proven ability to translate experimental insights into high-performance commercial products."
+tagline: "Experimental Polymer Scientist | Characterization · Formulation · Processing"
 availability_status: "Open to R&D opportunities starting May 2026"
 expected_graduation: "May 2026"
 baseurl: ""
@@ -57,27 +57,10 @@ signature_role: "Graduate Research Assistant, ME 1065"
 signature_affiliation: "Polymer Engineering Center | University of Wisconsin-Madison"
 signature_address: "1065 Mechanical Engineering Building | 1513 University Avenue, Madison, WI 53706"
 signature_website: "https://dibisa.github.io/"
-phd_summary: "Polymer Scientist specializing in soft matter simulations, rheology, and scalable biopolymer manufacturing. Developing predictive models for natural rubber latex systems."
+phd_summary: "Polymer scientist with expertise in polymer characterization (rheometry, NMR) and UV-curable formulations. Experienced in establishing structure-process-property relationships for natural rubber latex systems and emulsion-based products."
 
 # Skills for homepage skills section
 skills:
-  simulation:
-    - "COMSOL Multiphysics"
-    - "Moldex3D"
-    - "Digimat Structural Simulations"
-    - "Python"
-    - "R"
-    - "EES"
-    - "MATLAB"
-    - "VS Code"
-    - "Git / GitHub"
-  experimental:
-    - "Injection Molding"
-    - "Extrusion (Single & Twin-Screw)"
-    - "SLA 3D Printing"
-    - "Thermoforming"
-    - "Material Formulation"
-    - "Emulsion Synthesis"
   characterization:
     - "Rheometry (Netzsch, TA Instruments)"
     - "Solution-State NMR (2D)"
@@ -87,6 +70,23 @@ skills:
     - "UV-Vis Spectrometry"
     - "Dynamic Light Scattering (DLS)"
     - "SEM"
+  experimental:
+    - "UV-Curable Formulation"
+    - "Emulsion Synthesis"
+    - "Material Formulation"
+    - "SLA 3D Printing"
+    - "Injection Molding"
+    - "Extrusion (Single & Twin-Screw)"
+    - "Thermoforming"
+  computational_tools:
+    - "Python"
+    - "MATLAB"
+    - "R"
+    - "COMSOL Multiphysics"
+    - "Moldex3D"
+    - "Digimat Structural Simulations"
+    - "EES"
+    - "Git / GitHub"
 
 
 # Exclude from processing.
